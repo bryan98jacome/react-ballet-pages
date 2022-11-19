@@ -32,7 +32,7 @@ export default function NavegationBar() {
         await logout();
         setState(4);
         setDropdown(!dropdown);
-        navigate('../');
+        navigate('../react-ballet-pages');
     }
 
     const abrirCerrarDropdown = () => {
@@ -56,12 +56,12 @@ export default function NavegationBar() {
         navigate('../react-ballet-pages/administrar-cuenta');
     }
 
-    function clickAdminWeb(){
+    function clickAdminWeb() {
         setDropdown(!dropdown);
         navigate('../react-ballet-pages/administrar-web');
     }
 
-    function clickMiscursos(){}
+    function clickMiscursos() { }
 
     if (state == 6) {
         return (
@@ -79,7 +79,7 @@ export default function NavegationBar() {
                                 <Nav.Link as={Link} to="/react-ballet-pages/metodologia">Metodología</Nav.Link>
                                 <Nav.Link as={Link} to="/react-ballet-pages/docentes">Docentes</Nav.Link>
                             </Nav>
-                            <Nav> 
+                            <Nav>
                                 <Dropdown className="dropdown" isOpen={dropdown} toggle={abrirCerrarDropdown}>
                                     <DropdownToggle className="dropdownbutton" >
                                         {
@@ -135,16 +135,16 @@ export default function NavegationBar() {
         return (<>
             <Navbar className="navBar" collapseOnSelect expand="lg" bg="sure" variant="sure">
                 <Container>
-                    <Navbar.Brand className="logo" as={Link} to="/">
+                    <Navbar.Brand className="logo" as={Link} to="/react-ballet-pages">
                         <img className="logo" src={logo} height="80" width="80" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/academia">Academia</Nav.Link>
-                            <Nav.Link as={Link} to="/cursos">Cursos</Nav.Link>
-                            <Nav.Link as={Link} to="/metodologia">Metodología</Nav.Link>
-                            <Nav.Link as={Link} to="/docentes">Docentes</Nav.Link>
+                            <Nav.Link as={Link} to="/react-ballet-pages/academia">Academia</Nav.Link>
+                            <Nav.Link as={Link} to="/react-ballet-pages/cursos">Cursos</Nav.Link>
+                            <Nav.Link as={Link} to="/react-ballet-pages/metodologia">Metodología</Nav.Link>
+                            <Nav.Link as={Link} to="/react-ballet-pages/docentes">Docentes</Nav.Link>
                         </Nav>
                         <Nav>
                             <button className="login" onClick={clickContinueL}>Login</button>

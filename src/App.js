@@ -50,10 +50,10 @@ function App() {
         <Routes>
           <Route path='/react-ballet-pages' element={<NavegationBar />}>
             <Route index element={<Home />} />
-            <Route path='react-ballet-pages/academia' element={<Academia />} />
-            <Route path='react-ballet-pages/cursos' element={<Cursos />} />
-            <Route path='react-ballet-pages/metodologia' element={<Metodologia />} />
-            <Route path='react-ballet-pages/docentes' element={<Docentes />} />
+            <Route path='academia' element={<Academia />} />
+            <Route path='cursos' element={<Cursos />} />
+            <Route path='metodologia' element={<Metodologia />} />
+            <Route path='docentes' element={<Docentes />} />
             <Route path='login' element={<LogIn />} />
             <Route path='signup' element={<SignUp />} />
             <Route path='niveles' element={<Niveles />} />
