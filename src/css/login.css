@@ -1,0 +1,203 @@
+.main-login {
+    position: relative;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+}
+
+.divdiv {
+    width: 100%;
+}
+
+.img-lg {
+    width: 100%;
+    height: 800px;
+}
+
+.div-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 100px;
+}
+
+.div-input {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.a-recupera {
+    text-decoration: none;
+}
+
+.div-input form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input {
+    border: 3px solid black;
+    color: var(--text-color);
+    background-color: var(--theme-color);
+    font-size: 15px;
+    width: 100%;
+}
+
+.div-input input {
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(234, 240, 247, 1);
+}
+
+.svg-eye-slash {
+    position: absolute;
+    top: 85px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.svg-eye {
+    position: absolute;
+    top: 85px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.div-input form a {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 40px;
+    margin-left: 170px;
+    color: var(--secundary-color);
+    font-size: 12px;
+
+}
+
+.btn-login {
+    background-color: var(--theme-color);
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.div-cuenta {
+    display: flex;
+    justify-content: end;
+}
+
+.div-cuenta a {
+    color: var(--secundary-color);
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.hr {
+    color: rgba(0, 0, 0, 0.393);
+    size: 1;
+    width: 150;
+}
+
+.div-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+}
+
+.div-line p {
+    color: var(--secundary-color);
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.div-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn-google {
+    border-color: rgba(221, 223, 221, 1);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(246, 246, 246, 1);
+    width: 25%;
+    cursor: pointer;
+}
+
+.nav-linkLogin{
+    position: absolute;
+    width: 140px;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.nav-linkLogin a{
+    background-color: blue;
+    width: 100%;
+}
+
+.ms-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    color: red;
+    font-size: 10px;
+    width: 100%;
+}
+
+@media(max-width: 992px) {
+    .main-login {
+        position: relative;
+        background-color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main {
+        flex-direction: column;
+        justify-content: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+
+    .div-form {
+        background-image: url("../img/singup.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-top: 0;
+        width: 100%;
+        width: 100%;
+    }
+
+    .div-image {
+        display: none;
+    }
+
+    .img-lg {
+        display: none;
+    }
+
+}

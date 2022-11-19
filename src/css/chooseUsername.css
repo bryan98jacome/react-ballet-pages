@@ -1,0 +1,44 @@
+.main-chooseusername{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    background-color: var(--primary-color);
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.div-title{
+    width: 50%;
+    font-size: 27px;
+}
+
+.div-formusername{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.349);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.div-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.div-row div{
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.div-btn{
+    margin-top: 25px;
+    width: 100%;
+}

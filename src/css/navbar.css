@@ -1,0 +1,146 @@
+.navBar {
+    background-color: var(--theme-color);
+    height: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--primary-color);
+    border-radius: 100%;
+}
+
+/* Botones*/
+
+.login {
+    display: flex;
+    padding: 6px 15px 6px 15px;
+    background-color: aliceblue;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.login:hover {
+    background-color: rgba(0, 0, 0, 0.175);
+    color: rgba(240, 248, 255, 0.503);
+}
+
+.register {
+    display: flex;
+    align-items: center;
+    padding: 6px 15px 6px 15px;
+    background-color: lightseagreen;
+    color: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.register:hover {
+    background-color: rgba(0, 0, 0, 0.175);
+    color: rgba(240, 248, 255, 0.503);
+}
+
+.dropdown {
+    position: relative;
+    justify-content: center;
+}
+
+.dropdownbutton {
+    background-color: white !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 55px;
+    height: 55px;
+    border: none !important;
+    border-radius: 50% !important;
+    padding: 0;
+}
+
+.dropdownbutton img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.div-imageProfile {
+    display: flex;
+    justify-content: center;
+}
+
+.div-imageProfile img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.div-buttonDropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    width: 250px;
+}
+
+.button-cuenta {
+    border: 1px solid rgb(218, 220, 224);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+}
+
+.button-cuenta:hover {
+    background-color: rgb(247, 248, 248);
+}
+
+.button-cerrar {
+    border: 1px solid rgb(218, 220, 224);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+}
+
+.button-cerrar:hover {
+    background-color: rgb(247, 248, 248);
+}
+
+.div-dataUser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 20px 10px 20px;
+}
+
+.div-dataUser h1 {
+    font-size: 20px;
+}
+
+.div-dataUser p {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.485);
+}
+
+@media(max-width: 992px) {
+    .login {
+        justify-content: center;
+        margin: 5px;
+    }
+
+    .register {
+        justify-content: center;
+        margin: 5px;
+    }
+
+    .navBar {
+        height: auto;
+    }
+}

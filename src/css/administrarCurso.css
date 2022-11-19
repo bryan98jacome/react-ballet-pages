@@ -1,0 +1,116 @@
+.main-adminCurso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-adminCurso h1 {
+    font-size: 30px;
+    margin: 25px 0 25px 0;
+}
+
+.main-adminCurso section {
+    width: 90%;
+    margin: 25px 0 25px 0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.107);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.159);
+}
+
+.photo-curso {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 25px;
+}
+
+.div-addNivel {
+    width: 40%;
+}
+
+.div-addNivel form {
+    display: flex;
+    flex-direction: row;
+}
+
+.div-addNivel input {
+    width: 90%;
+    margin: 5px;
+}
+
+/********* view-nivel ********/
+.view-nivel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin: 15px;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.view-nivel:hover {
+    background-color: rgb(244, 244, 244);
+}
+
+.input-selec {
+    width: auto !important;
+    margin: 5px !important;
+}
+
+.div-datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-renNiveles {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.div-deleteCurso {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+.btnDelete{
+    border: none !important;
+    margin: 5px !important;
+}
+
+@media(max-width: 992px) {
+    .div-addNivel {
+        width: 90%;
+    }
+
+    .div-renNiveles {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media(max-width: 500px) {
+    .div-addNivel {
+        width: 100%;
+    }
+
+    .div-addNivel form {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,133 @@
+.main-metod {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 55px;
+    padding: 25px;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.div-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-intro strong {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.div-text {
+    padding: 15px;
+    width: 70%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.div-text img {
+    width: 50%;
+    height: 60%;
+    margin: 5px;
+    float: right;
+    border-radius: 5px;
+}
+
+.div-text p {
+    font-size: 15px;
+    margin-top: 0;
+    text-align: justify;
+}
+
+.div-info {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-info strong {
+    margin-top: 50px;
+    margin-left: 25px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.div-info p {
+    font-size: 12px;
+}
+
+.div-list {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    padding: 0;
+    border: 8px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.div-list div {
+    width: 100%;
+}
+
+.div-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.div-list li {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    text-align: justify;
+}
+
+.div-list li::before {
+    content: '\3E';
+    font-size: 17px;
+    display: inline-block;
+    padding-right: 10px;
+    margin-left: 10px;
+    color: black;
+}
+
+@media(max-width: 800px) {
+    .div-text {
+        padding: 15px;
+        width: 70%;
+        border-radius: 5px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div-text img {
+        width: 100%;
+        height: 50%;
+        padding-left: 0;
+    }
+    
+    .div-text p {
+        width: 100%;
+        font: 10px;
+    }
+
+    .div-list {
+        width: 100%;
+    }
+}
+
+@media(max-width: 500px) {
+    .div-list {
+        flex-direction: column;
+    }
+}

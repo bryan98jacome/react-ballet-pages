@@ -1,0 +1,398 @@
+.main-niveles {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.div-encabezado {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(50deg, var(--secundary-color) 45%, rgba(0, 0, 0, 0.1) 60%), url("../img/3 1ra posicion de brazos.JPG") center center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.div-main {
+    margin-top: 25px;
+}
+
+.div-curso {
+    display: flex;
+    justify-content: start;
+    margin-left: 25px;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+}
+
+.div-comprar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.cont-button {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.cont-button strong {
+    display: flex;
+    justify-content: start;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.cont-button p {
+    font-size: 15px;
+}
+
+.cont-button button {
+    border: none;
+    background-color: lightseagreen;
+    color: #f2f2f2;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.div-nav {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 50px;
+    padding-left: 90px;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.229);
+}
+
+.div-nav a {
+    font-size: 14px;
+    margin-left: 25px;
+    text-decoration: none;
+}
+
+.div-main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.div-aside {
+    width: 50%;
+    margin: 5px;
+}
+
+.div-aside aside {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-conte {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.div-conte div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 25px;
+}
+
+.div-conte div strong {
+    font-size: 20px;
+    text-align: start;
+}
+
+.div-conte div p {
+    display: flex;
+    font-size: 10px;
+    text-align: start;
+}
+
+.div-section {
+    width: 100%;
+}
+
+.div-cuadro {
+    border: 0.5px solid rgba(0, 0, 0, 0.229);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-cuadro div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.titulo-cuadro {
+    font-size: 15px;
+    text-align: start;
+}
+
+.div-cuadro li {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.div-cuadro li p {
+    font-size: 13px;
+    text-align: justify;
+}
+
+.div-cuadro li::before {
+    font-size: 20px;
+    color: green;
+    content: '\2714';
+    padding-right: 8px;
+}
+
+.sec-niveles {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.229);
+    width: 100%;
+
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.subtitulo {
+    margin: 20px 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sec-niveles p {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+.div-instructor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.div-instructor img {
+    border-radius: 150px;
+    margin-bottom: 20px;
+}
+
+.div-instructor p {
+    margin-left: 15px;
+    width: 300px;
+    margin: auto 20px;
+    font-size: 14px;
+}
+
+.div-contentNivel {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-imgtext {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-imgMostrar {
+    width: 100%;
+}
+
+.img-mostrar {
+    border-radius: 15px !important;
+    width: 70% !important;
+}
+
+
+.div-textMostrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.div-textMostrar  p {
+    padding: 0 50px;
+    width: 100%;
+    text-align: justify;
+}
+
+.div-textMostrar ul {
+
+    padding: 40px;
+}
+
+.div-textMostrar ul li {
+    text-align: left;
+}
+
+.button-more {
+    background-color: var(--alternative-pink);
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    height: max-content;
+}
+
+.active,
+.button-more:hover {
+    background-color: var(--alternative-pink-secundary);
+    transition: 2s;
+}
+
+.text-more {
+    padding: 0 20px;
+    display: none;
+    overflow: hidden;
+}
+
+.div-line{
+    padding: 0 50px 0 50px;
+}
+
+@media(max-width: 800px) {
+    .div-encabezado {
+        background: url("../img/3 1ra posicion de brazos.JPG") center center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cont-button button {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .div-curso {
+        justify-content: center;
+        height: 100%;
+        margin: 25px;
+    }
+
+    .div-comprar {
+        height: 100%;
+        margin: 25px;
+    }
+
+    .div-nav {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .div-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .div-aside {
+        width: 100%;
+        margin: 0;
+    }
+
+    .div-conte {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .div-conte div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .div-conte div strong {
+        text-align: center;
+    }
+
+    .div-conte div p {
+        text-align: center;
+    }
+
+    .div-cuadro {
+        padding: 5px;
+        margin-right: 2px;
+    }
+
+    .div-cuadro div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .div-cuadro ul {
+        padding: 0;
+    }
+
+
+    .div-imgtext {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .sec-instructor {
+        margin-bottom: 25px;
+    }
+
+    .div-textMostrar {
+        justify-content: center;
+        align-items: center;
+    }
+}

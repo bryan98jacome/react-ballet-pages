@@ -1,0 +1,85 @@
+.admin-nivel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-nivel h2 {
+    margin: 25px 0 25px 0;
+}
+
+.admin-nivel section {
+    width: 90%;
+    margin: 25px 0 25px 0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.107);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.159);
+}
+
+.div-addUnidad {
+    width: 40%;
+}
+
+.div-addPaso {
+    width: 100%;
+}
+
+.form-add {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-add button {
+    margin-left: 5px;
+}
+
+.form-addPaso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-addPaso button {
+    margin-top: 5px;
+}
+
+.cls-input {
+    margin: 5px 0 5px 0;
+    width: 30% !important;
+}
+
+.div-unidades {
+    background-color: rgba(255, 255, 255, 0.50);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+}
+
+.addPaso {
+    margin: 25px 0 5px 25px;
+}
+
+@media(max-width: 992px) {
+    .div-addUnidad {
+        width: 100%;
+    }
+
+    .cls-input {
+        width: 50% !important;
+    }
+}
+
+@media(max-width: 500px) {
+    .cls-input {
+        width: 100% !important;
+    }
+}

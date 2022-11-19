@@ -1,0 +1,95 @@
+.main-docentes {
+    padding-top: 55px;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 800px;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.titulo-docentes {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.section-docentes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.div-ninette {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    width: 600px;
+    flex-wrap: wrap;
+}
+
+.div-ninette img {
+    border-radius: 150px;
+}
+
+.div-ninette strong {
+    font-size: 20px;
+}
+
+.div-ninette p {
+    margin-left: 15px;
+    width: 300px;
+    margin: auto 20px;
+    font-size: 15px;
+}
+
+.div-docentes-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-docentes-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 150x;
+}
+
+.grid-docentes-item img {
+    border-radius: 150px;
+    margin: 0 auto;
+
+}
+
+.grid-docentes-item p {
+    margin: 40px 50px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media(max-width: 992px) {
+    .main-docentes{
+        max-height: 2000px;
+    }
+    .div-ninette {
+        margin: 0;
+        justify-content: center;
+    }
+
+    .titulo-docentes {
+        font-size: 30px;
+    }
+
+    .div-ninette p {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+}

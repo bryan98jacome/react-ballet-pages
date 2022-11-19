@@ -1,0 +1,152 @@
+.main-AdminDocente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    padding-top: 50px;
+}
+
+.div-imgAdminCuenta {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.div-imgAdminCuenta img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    width: 250px;
+    height: 250px;
+}
+
+.div-imgAdminCuenta p {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.div-newPhotoPro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.div-newPhotoPro img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.div-infoBasica {
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid rgba(0, 0, 0, 0.229);
+    border-radius: 10px;
+    width: 60%;
+    margin-bottom: 50px;
+}
+
+.div-infoBasica p {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.button-infoBasica {
+    display: flex;
+    align-items: center;
+    border: none;
+    width: 100%;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.229);
+    background-color: var(--primary-color);
+}
+
+.button-final {
+    border-bottom: none;
+    border-radius: 10px;
+}
+
+.dropdownbutton-info {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: var(--primary-color) !important;
+    border: none !important;
+    width: 100%;
+}
+
+.dropdownenu-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.div-newimg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-newimg img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+}
+
+.div-newimg label {
+    font-size: 25px;
+}
+
+.dropdownenu-info form {
+    margin: 0 50px 0 50px;
+}
+
+.dropdownenu-info form button {
+    border: none;
+    margin: 25px 0 0 25px;
+}
+
+.btnred {
+    background-color: red !important;
+}
+
+.button-infoBasica:hover {
+    background-color: rgba(57, 57, 57, 0.045);
+}
+
+.button-infoBasica p {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.div-center {
+    flex-grow: 3;
+    flex-basis: 0;
+    width: 50%;
+}
+
+.div-rigth {
+    flex-grow: 1;
+    flex-basis: 0;
+    width: 50%;
+}
+
+.button-infoBasica img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 15px;
+}
+
+.button-infoBasica svg {
+    color: rgba(0, 0, 0, 0.50);
+    height: 30px;
+    width: 30px;
+    margin: 15px;
+}

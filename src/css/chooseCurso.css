@@ -1,0 +1,24 @@
+.main-choosCurso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    background-color: var(--primary-color);
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.div-formuCurso {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.349);
+}
+
+.div-nameInput{
+    width: 250px;
+    margin-bottom: 25px;
+}

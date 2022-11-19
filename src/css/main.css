@@ -1,0 +1,17 @@
+/* El root es como el html del index, engloba todo */
+:root{
+    --theme-color: #C6AAC8;
+    --primary-color: #f2e9e4;
+    --secundary-color: #6d6875;
+    --third-color: #ffc8dd;
+    --text-color-inverse: white;
+    --alternative-pink: #ffd6ff;
+    --alternative-pink-secundary: #e7c6ff;
+    --text-color: #333;
+    --navbar-shallow-color: #e5e5e5;
+    --menu-mobile-background-color: #619b8a;
+
+    --font-family: 'Poppins', sans-serif;
+    --color: var(--text-color);
+    --font-size: 10px;
+}

@@ -1,0 +1,111 @@
+.main-cursos {
+    padding-top: 50px;
+    background-color: var(--primary-color);
+    width: 100%;
+    max-height: 2000px;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.titulo-curso {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.div-cursos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0 15px 0;
+    padding: 0 25px 0 25px;
+}
+
+.text {
+    font-size: 14px;
+    margin-right: 25px;
+    text-align: start;
+}
+
+.div-cursos strong {
+    font-size: 25px;
+    text-align: start;
+}
+
+.a-explore {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.navLink {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: 15px;
+    margin-right: 5px;
+    color: rgba(140, 48, 245, 1);
+    cursor: pointer;
+}
+
+.navLink svg {
+    margin-left: 5px;
+}
+
+.div-cursos .div-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.div-image img {
+    border-radius: 50%;
+}
+
+.div-contCurso {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    margin-bottom: 25px;
+    width: 30%;
+}
+
+@media(max-width: 800px) {
+    .div-cursos {
+        margin-top: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .titulo-curso {
+        font-size: 30px;
+    }
+
+}
+
+@media(max-width: 700px) {
+    .div-cursos {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .div-cursos strong {
+        text-align: center;
+        width: 100%;
+    }
+
+    .div-contCurso {
+        margin: 0 0 25px 0;
+        width: 90%;
+    }
+}
