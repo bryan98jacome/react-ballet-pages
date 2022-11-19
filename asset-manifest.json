@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-ballet-pages/static/css/main.2bab36f2.css",
+    "main.js": "/react-ballet-pages/static/js/main.b01b9437.js",
+    "static/js/787.59f1730a.chunk.js": "/react-ballet-pages/static/js/787.59f1730a.chunk.js",
+    "static/media/3 1ra posicion de brazos.JPG": "/react-ballet-pages/static/media/3 1ra posicion de brazos.439c2121d359b3d8d301.JPG",
+    "static/media/3 5ta posicion de brazos.JPG": "/react-ballet-pages/static/media/3 5ta posicion de brazos.02422af3aa090ff54ade.JPG",
+    "static/media/7 Efface derriere.JPG": "/react-ballet-pages/static/media/7 Efface derriere.381c18b5fb2b448a9f07.JPG",
+    "static/media/singup.jpg": "/react-ballet-pages/static/media/singup.24f79fb891f65a3208f0.jpg",
+    "static/media/docente-ninette-duran.jpg": "/react-ballet-pages/static/media/docente-ninette-duran.e3731986b656e00ca10f.jpg",
+    "static/media/docente.jpg": "/react-ballet-pages/static/media/docente.a54f66b8468a7e534c97.jpg",
+    "static/media/BALLET TEACHER ACADEMY.jpg": "/react-ballet-pages/static/media/BALLET TEACHER ACADEMY.fdbf00639383a51eff9d.jpg",
+    "static/media/user.png": "/react-ballet-pages/static/media/user.c920752422c11377083e.png",
+    "static/media/addPhoto.png": "/react-ballet-pages/static/media/addPhoto.d5c91d587f26349d2be4.png",
+    "index.html": "/react-ballet-pages/index.html",
+    "main.2bab36f2.css.map": "/react-ballet-pages/static/css/main.2bab36f2.css.map",
+    "main.b01b9437.js.map": "/react-ballet-pages/static/js/main.b01b9437.js.map",
+    "787.59f1730a.chunk.js.map": "/react-ballet-pages/static/js/787.59f1730a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bab36f2.css",
+    "static/js/main.b01b9437.js"
+  ]
+}
