@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<NavegationBar />}>
+          <Route path='/react-ballet-pages' element={<NavegationBar />}>
             <Route index element={<Home />} />
             <Route path='academia' element={<Academia />} />
             <Route path='cursos' element={<Cursos />} />
