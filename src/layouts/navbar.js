@@ -68,13 +68,16 @@ export default function NavegationBar() {
             <>
                 <Navbar className="navBar" collapseOnSelect expand="lg" bg="sure" variant="sure">
                     <Container>
-                            <img className="logo" src={logo} height="80" width="80" onClick={cerrarSesion} />
+                        <Navbar.Brand className="logo" as={Link} to="/react-ballet-pages">
+                            <img className="logo" src={logo} height="80" width="80" />
+                        </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link as={Link} to="../react-ballet-pages/cursos">Cursos</Nav.Link>
-                                <Nav.Link as={Link} to="../react-ballet-pages/metodologia">Metodología</Nav.Link>
-                                <Nav.Link as={Link} to="../react-ballet-pages/docentes">Docentes</Nav.Link>
+                                <Nav.Link as={Link} to="/react-ballet-pages/academia">Academia</Nav.Link>
+                                <Nav.Link as={Link} to="/react-ballet-pages/cursos">Cursos</Nav.Link>
+                                <Nav.Link as={Link} to="/react-ballet-pages/metodologia">Metodología</Nav.Link>
+                                <Nav.Link as={Link} to="/react-ballet-pages/docentes">Docentes</Nav.Link>
                             </Nav>
                             <Nav> 
                                 <Dropdown className="dropdown" isOpen={dropdown} toggle={abrirCerrarDropdown}>
