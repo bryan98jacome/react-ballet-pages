@@ -400,22 +400,6 @@ export async function deleteUnidad(uuid) {
   }
 }
 
-/*Consultar los pasos por id de la unidad*/
-export async function getPasosUnidad(id) {
-  const pasos = [];
-  try {
-    const collectionRef = collection(db, "pasos");
-    const q = query(collectionRef, where("idunidad", "==", id));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      pasos.push(doc.data());
-    });
-    return pasos;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 /******** Servicios de los pasos *********/
 /*Guarda el archivo en storage*/
 export async function setProfilePaso(uid, file) {
@@ -479,6 +463,33 @@ export async function getPasosNivel(id) {
       pasos.push(doc.data());
     });
     return pasos;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/*Consultar los pasos por id de la unidad*/
+export async function getPasosUnidad(id) {
+  const pasos = [];
+  try {
+    const collectionRef = collection(db, "pasos");
+    const q = query(collectionRef, where("idunidad", "==", id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      pasos.push(doc.data());
+    });
+    return pasos;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/*Consulta el paso mediante el id*/
+export async function getPaso(uuid) {
+  try {
+    const docRef = doc(db, "pasos", uuid);
+    const document = await getDoc(docRef);
+    return document.data();
   } catch (error) {
     console.error(error);
   }

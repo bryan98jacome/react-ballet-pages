@@ -1,0 +1,44 @@
+.main-editPaso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-editPaso section {
+    width: 90%;
+    margin: 25px 0 25px 0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.107);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.159);
+}
+
+.section-editPaso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 25px;
+}
+
+.section-editPaso form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25.4%;
+}
+
+.section-editPaso form input{
+    margin-bottom: 5px;
+}
+
+.section-editPaso form textarea{
+    margin-bottom: 5px;
+}
+
+.form-editPaso {
+    width: 100% !important;
+}

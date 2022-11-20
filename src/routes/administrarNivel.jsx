@@ -80,7 +80,6 @@ export default function AdministrarNivel() {
     async function clickSave() {
         if (data == "nombre") {
             const noexist = await existsNivel(nombre, nivel.idCurso);
-            console.log(noexist);
             if (noexist) {
                 const tmp = { ...nivel };
                 tmp.name = nombre;

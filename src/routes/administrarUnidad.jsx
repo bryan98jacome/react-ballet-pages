@@ -56,7 +56,7 @@ export default function AdministrarUnidad() {
                     <h3>Descripción</h3>
                     <div> <p>{paso.paso}</p> </div>
                     <div className="botones">
-                        <button type="submit" className="btn btn-primary">Editar</button>
+                        <button type="submit" className="btn btn-primary" onClick={e => (editPaso(paso.id))}>Editar</button>
                         <button className="btn btn-primary btnred btnDelete" onClick={e => (eliminarPaso(paso.id))}>Eliminar Paso</button>
                     </div>
                 </div>
@@ -115,6 +115,10 @@ export default function AdministrarUnidad() {
                 swal(`¡El paso está a salvo!`);
             }
         });
+    }
+
+    function editPaso(uuid) {
+        navigate(`../editar-paso/${uuid}`);
     }
 
     if (state == 6 && currentUser.rol === "administrador") {

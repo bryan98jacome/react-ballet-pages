@@ -18,6 +18,7 @@ import './css/administrarDocente.css';
 import './css/administrarCurso.css';
 import './css/administrarNivel.css';
 import './css/administrarUnidad.css';
+import './css/editPaso.css';
 import './css/chooseDocente.css';
 import './css/chooseCurso.css';
 import './css/footer.css';
@@ -39,6 +40,7 @@ import ChoosCurso from './routes/chooseCurso';
 import AdiministrarCurso from './routes/administrarCurso';
 import AdministrarNivel from './routes/administrarNivel';
 import AdministrarUnidad from './routes/administrarUnidad';
+import EditPaso from './routes/editPaso';
 import NavegationBar from './layouts/navbar';
 import Footer from './layouts/footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -66,6 +68,7 @@ function App() {
             <Route path='administrar-curso/:idcurso' element={<AdiministrarCurso />} />
             <Route path='administrar-nivel/:idnivel' element={<AdministrarNivel />} />
             <Route path='administrar-unidad/:idunidad' element={<AdministrarUnidad />} />
+            <Route path='editar-paso/:idpaso' element={<EditPaso />} />
           </Route>
         </Routes>
         <Footer />
