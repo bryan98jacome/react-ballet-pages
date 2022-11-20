@@ -6,7 +6,9 @@ const Home = () => {
                     <section className="section-video">
                         <div className="overlay"></div>
                         <video loop autoPlay muted>
-                            <source src='https://firebasestorage.googleapis.com/v0/b/metodologia-ballet.appspot.com/o/videos%2FvideoIntro.mp4?alt=media&token=da522a9c-dbf7-4ad2-8ea9-6820a20d66b7' />
+                            <source 
+                            src='https://firebasestorage.googleapis.com/v0/b/metodologia-ballet.appspot.com/o/videos%2FvideoIntro.mp4?alt=media&token=da522a9c-dbf7-4ad2-8ea9-6820a20d66b7'
+                            />
                         </video>
                     </section>
                 </section>

@@ -42,3 +42,9 @@
 .form-editPaso {
     width: 100% !important;
 }
+
+@media(max-width: 992px) {
+    .section-editPaso form {
+        width: 100%;
+    }
+}
