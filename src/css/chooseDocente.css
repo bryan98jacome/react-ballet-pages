@@ -8,9 +8,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
-
-
 .div-photoDocente {
     display: flex;
     flex-direction: column;
@@ -24,4 +21,17 @@
     height: 80px;
     margin-bottom: 5px;
     border-radius: 50%;
+}
+
+@media(max-width: 570px) {
+    .div-formusername {
+        width: 90%;
+    }
+}
+
+@media(max-width: 500px) {
+    .div-row{
+        display: flex;
+        flex-direction: column;
+    }
 }

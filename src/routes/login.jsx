@@ -130,10 +130,9 @@ const LogIn = () => {
                             <button className="btn-login" type="submit">Entrar</button>
                         </form>
                         <div className="div-cuenta">
-                            <Nav.Link className="nav-linkLogin" as={Link} to="/signup">
+                            <Nav.Link className="nav-linkLogin" as={Link} to="../signup">
                                 Crea una cuenta aquí
                             </Nav.Link>
-
                         </div>
                         <div className="div-line">
                             <hr color="#C6AAC8" size={1} width="90" />

@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import img from "../img/singup.jpg";
-import { auth, existsEmail, logout, updateUser } from "../firebase/firebase";
+import { auth, existsEmail } from "../firebase/firebase";
 import {
   GoogleAuthProvider,
-  onAuthStateChanged,
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  sendEmailVerification,
 } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
+import { useNavigate } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
 import { useFormik } from "formik";
 import swal from "sweetalert";
@@ -78,7 +75,7 @@ export default function SignUp() {
     }
   }
 
-  if (state == 4) {
+  if (state === 4) {
     return (
       <main className="main-signup">
         <div className="div-img">
@@ -90,7 +87,7 @@ export default function SignUp() {
               <input
                 type="email"
                 name="input-email"
-                id="input-email"
+                className="input-email"
                 placeholder="Ingrese el Email"
                 required
                 onChange={(e) => {
@@ -100,7 +97,7 @@ export default function SignUp() {
               <input
                 type={passwordShown ? "text" : "password"}
                 name="input-pass"
-                id="input-pass"
+                className="input-pass"
                 required
                 onChange={(e) => {
                   setPass(e.target.value);
