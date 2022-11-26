@@ -36,11 +36,11 @@ export default function AdministrarWeb() {
     }
 
     function handleOnNewDocente() {
-        navigate("/choose-docente");
+        navigate("../choose-docente");
     }
 
     function handleOnNewCurso() {
-        navigate("/choose-curso");
+        navigate("../choose-curso");
     }
 
     function renderDocentes() {
