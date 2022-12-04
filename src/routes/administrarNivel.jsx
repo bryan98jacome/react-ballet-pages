@@ -97,11 +97,13 @@ export default function AdministrarNivel() {
         if (data == "addUnidad") {
             const noexist = await existsUnidad(unidad, idnivel);
             if (noexist) {
+                const cont = unidades.length;
                 const tmp = {};
                 tmp.id = uuid();
                 tmp.idNivel = idnivel;
                 tmp.idCurso = nivel.idCurso;
                 tmp.name = unidad;
+                tmp.order = cont + 1;
                 await upDateUnidad(tmp);
                 swal(
                     `La unidad ${unidad}`,
@@ -182,6 +184,17 @@ export default function AdministrarNivel() {
     }
 
     function renderUnidades() {
+        //ordenar array unidades 
+        unidades.sort((a, b) => {
+            if (a.order > b.order) {
+                return 1;
+            }
+            if (a.order < b.order) {
+                return -1;
+            }
+            return 0;
+        });
+
         if (unidades.length > 0) {
             return unidades.map((unidad) => (
                 <div

@@ -74,10 +74,12 @@ export default function AdiministrarCurso() {
         if (data == "addNivel") {
             const noexist = await existsNivel(nombreNivel, idcurso);
             if (noexist) {
+                const conta = niveles.length;
                 const tmp = {};
                 tmp.id = uuid();
                 tmp.idCurso = idcurso;
                 tmp.name = nombreNivel;
+                tmp.order = conta + 1;
                 await upDateNivel(tmp);
                 swal(
                     `El nivel ${nombreNivel}`,
@@ -88,38 +90,6 @@ export default function AdiministrarCurso() {
             } else {
                 swal(
                     `El nivel ${nombreNivel} ya existe`,
-                    "Intenta de nuevo",
-                    "error"
-                );
-            }
-        }
-
-        if (data == "addUnidad") {
-            const noexist = await existsUnidad(nombreUnidad, nivel);
-            if (noexist) {
-                if (nivel == '' || nivel == 'false') {
-                    swal(
-                        `Debe seleccionar un nivel`,
-                        "Intenta de nuevo",
-                        "error"
-                    );
-                } else {
-                    const tmp = {};
-                    tmp.id = uuid();
-                    tmp.idNivel = nivel;
-                    tmp.idCurso = idcurso;
-                    tmp.name = nombreUnidad;
-                    await upDateUnidad(tmp);
-                    swal(
-                        `La unidad ${nombreUnidad}`,
-                        "se agrego con exito",
-                        "success",
-                    );
-                    setInputUnidad("");
-                }
-            } else {
-                swal(
-                    `La unidad ${nombreUnidad} ya existe`,
                     "Intenta de nuevo",
                     "error"
                 );
@@ -206,6 +176,17 @@ export default function AdiministrarCurso() {
     }
 
     function renderNiveles() {
+        //ordenar array niveles 
+        niveles.sort((a, b) => {
+            if (a.order > b.order) {
+                return 1;
+            }
+            if (a.order < b.order) {
+                return -1;
+            }
+            return 0;
+        });
+
         if (niveles.length > 0) {
             return niveles.map((nivel) => (
                 <div
@@ -391,32 +372,6 @@ export default function AdiministrarCurso() {
                                     setData(e.target.name);
                                 }}
                             />
-                            <button type="submit" className="btn btn-primary">Agregar</button>
-                        </form>
-                    </div>
-                </section>
-
-                <section>
-                    <div className="div-addNivel">
-                        <h3>Agregar nueva unidad</h3>
-                        <form onSubmit={formik.handleSubmit}>
-                            <input
-                                type="text" name="addUnidad" className="form-control" required
-                                value={inputUnidad}
-                                onChange={(e) => {
-                                    setInputUnidad(e.target.value);
-                                    setNombreUnidad(e.target.value);
-                                    setData(e.target.name);
-                                }}
-                            />
-                            <Form.Control as="select" className="input-selec" onChange={(e) => { setNivel(e.target.value) }}>
-                                <option value={false}>Select level</option>
-                                {
-                                    niveles.map(nivel => (
-                                        <option value={nivel.id} key={nivel.id}>{nivel.name}</option>
-                                    ))
-                                }
-                            </Form.Control>
                             <button type="submit" className="btn btn-primary">Agregar</button>
                         </form>
                     </div>
