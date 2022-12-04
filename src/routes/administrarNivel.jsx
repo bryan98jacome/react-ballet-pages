@@ -1,12 +1,10 @@
-import { useEffect } from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
-import { deleteNivel, deletePaso, deleteUnidad, existsNivel, existsPaso, existsUnidad, getNivel, getNiveles, getPasosNivel, getProfilePhotoUrl, getUnidadesNivel, setProfilePaso, upDateNivel, upDatePaso, upDateUnidad } from "../firebase/firebase";
+import { deleteNivel, deletePaso, deleteUnidad, existsNivel, existsUnidad, getNivel, getNiveles, getPasosNivel, getProfilePhotoUrl, getUnidadesNivel, setProfilePaso, upDateNivel, upDatePaso, upDateUnidad } from "../firebase/firebase";
 import { useFormik } from 'formik';
 import swal from "sweetalert";
 import { v4 as uuid } from "uuid";
-import Form from 'react-bootstrap/Form';
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import Flecha from "../layouts/flecha";
 
@@ -22,30 +20,13 @@ export default function AdministrarNivel() {
 
     const [unidades, setUnidades] = useState([]);
     const [unidad, setUnidad] = useState('');
-    const [idUnidad, setIdUnidad] = useState('');
 
-    const [paso, setPaso] = useState('');
-    const [nombrePaso, setNombrePaso] = useState('');
     const [pasos, setPasos] = useState([]);
 
     const [data, setData] = useState('');
-    const [file, setFile] = useState({});
     const [inputUnidad, setInputUnidad] = useState("");
-    const [inputPaso, setInputPaso] = useState("");
-    const [inputNombrePaso, setInputNombrePaso] = useState("");
 
     const [dropdownN, setDropdownN] = useState(false);
-
-    async function getData() {
-        const res = await getNivel(idnivel);
-        setNivel(res);
-
-        const resUnidades = await getUnidadesNivel(idnivel);
-        setUnidades([...resUnidades]);
-
-        const resPasos = await getPasosNivel(idnivel);
-        setPasos([...resPasos]);
-    }
 
     async function handledUserLoggedIn(user) {
         setcurrentUser(user);
@@ -65,6 +46,17 @@ export default function AdministrarNivel() {
     function handleUserNotLoggedIn() {
         setState(4);
         navigate("../");
+    }
+
+    async function getData() {
+        const res = await getNivel(idnivel);
+        setNivel(res);
+
+        const resUnidades = await getUnidadesNivel(idnivel);
+        setUnidades([...resUnidades]);
+
+        const resPasos = await getPasosNivel(idnivel);
+        setPasos([...resPasos]);
     }
 
     const formik = useFormik({
@@ -94,6 +86,7 @@ export default function AdministrarNivel() {
                 );
             }
         }
+
         if (data == "addUnidad") {
             const noexist = await existsUnidad(unidad, idnivel);
             if (noexist) {
@@ -120,67 +113,7 @@ export default function AdministrarNivel() {
             }
         }
 
-        if (data == "addPaso") {
-            const noexist = await existsPaso(nombrePaso, idUnidad);
-            if (noexist) {
-                if (idUnidad == '' || idUnidad == 'false') {
-                    swal(
-                        `Debe seleccionar un nivel`,
-                        "Intenta de nuevo",
-                        "error"
-                    );
-                } else {
-                    FilePicker();
-                    swal(
-                        `El paso ${nombrePaso}`,
-                        "se agrego con exito",
-                        "success",
-                    );
-                    setInputNombrePaso('');
-                    setInputPaso('');
-                }
-            } else {
-                swal(
-                    `El paso ${nombrePaso} ya existe`,
-                    "Intenta de nuevo",
-                    "error"
-                );
-            }
-
-        }
         getData();
-    }
-
-    function FilePicker() {
-        const fileReader = new FileReader();
-        if (fileReader && file && file.length > 0) {
-            fileReader.readAsArrayBuffer(file[0]);
-            fileReader.onload = async function () {
-                const videoData = fileReader.result;
-                const idPaso = uuid();
-                const res = await setProfilePaso(idPaso, videoData);
-                if (res) {
-                    const urlVideo = await getProfilePhotoUrl(res.metadata.fullPath);
-                    addPaso(idPaso, urlVideo);
-                }
-            };
-        }
-    }
-
-    async function addPaso(idPaso, urlVideo) {
-        const tmp = {};
-        tmp.id = idPaso;
-        tmp.idCurso = nivel.idCurso;
-        tmp.idNivel = idnivel;
-        tmp.idunidad = idUnidad;
-        tmp.name = nombrePaso;
-        tmp.video = urlVideo;
-        tmp.paso = paso;
-        await upDatePaso(tmp);
-    }
-
-    function handleOnClickUnidad(e) {
-        navigate(`../administrar-unidad/${e}`);
     }
 
     function renderUnidades() {
@@ -206,6 +139,10 @@ export default function AdministrarNivel() {
                 </div>
             ));
         }
+    }
+
+    function handleOnClickUnidad(e) {
+        navigate(`../administrar-unidad/${e}`);
     }
 
     const abrirCerrarDropdown = () => { setDropdownN(!dropdownN); }
@@ -305,50 +242,6 @@ export default function AdministrarNivel() {
                 </section>
 
                 <section>
-                    <div className="div-addPaso">
-                        <h3>Agregar Paso</h3>
-                        <form className="form-addPaso" onSubmit={formik.handleSubmit}>
-                            <input type="text" className="form-control cls-input" required
-                                value={inputNombrePaso}
-                                onChange={(e) => {
-                                    setInputNombrePaso(e.target.value);
-                                    setNombrePaso(e.target.value);
-                                }}
-                            />
-                            <Form.Group controlId="formFile" className="mb-3">
-                                <Form.Control type="file" required
-                                    onChange={(e) => {
-                                        setFile(e.target.files);
-                                    }}
-                                />
-                            </Form.Group>
-                            <textarea
-                                id="texto"
-                                name="addPaso"
-                                className="form-control"
-                                type="text"
-                                required
-                                value={inputPaso}
-                                onChange={(e) => {
-                                    setInputPaso(e.target.value);
-                                    setPaso(e.target.value);
-                                    setData(e.target.name);
-                                }}
-                            />
-                            <Form.Control as="select" className="input-selec" onChange={(e) => { setIdUnidad(e.target.value) }}>
-                                <option value={false}>Select level</option>
-                                {
-                                    unidades.map(unidad => (
-                                        <option value={unidad.id} key={unidad.id}>{unidad.name}</option>
-                                    ))
-                                }
-                            </Form.Control>
-                            <button type="submit" className="btn btn-primary">Agregar</button>
-                        </form>
-                    </div>
-                </section>
-
-                <section>
                     <div className="div-datos">
                         <h3>Unidades</h3>
                     </div>
@@ -359,7 +252,6 @@ export default function AdministrarNivel() {
 
                 <div className="div-deleteCurso">
                     <button className="btn btn-primary btnred btnDelete" onClick={clickDeleteNivel}>Eliminar Nivel</button>
-
                 </div>
 
             </main>

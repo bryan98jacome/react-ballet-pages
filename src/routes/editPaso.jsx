@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
 import { useState } from "react";
-import { existsPaso, getPaso, getProfilePhotoUrl, setProfilePaso, upDatePaso } from "../firebase/firebase";
+import { deletePaso, existsPaso, getPaso, getProfilePhotoUrl, setProfilePaso, upDatePaso } from "../firebase/firebase";
 import { useFormik } from 'formik';
 import Form from 'react-bootstrap/Form';
 import swal from "sweetalert";
@@ -97,9 +97,12 @@ export default function EditPaso() {
         if (data == "video") {
             FilePicker();
             swal(
-                `El videovdel paso`,
-                "se actualizo con exito",
-                "success",
+                `El video del paso`,
+                "se esta actualisando",
+                {
+                    timer: 20000,
+                    buttons: false
+                }
             );
         }
 
@@ -113,17 +116,44 @@ export default function EditPaso() {
                 const videoData = fileReader.result;
                 const res = await setProfilePaso(paso.id, videoData);
                 if (res) {
-                    const urlVideo = await getProfilePhotoUrl(res.metadata.fullPath);
-                    addPaso(urlVideo);
+                    getUrl(res.metadata.fullPath);
                 }
             };
         }
     }
 
-    async function addPaso(urlVideo) {
+    async function getUrl(res) {
+        const urlVideo = await getProfilePhotoUrl(res);
+        editVideo(urlVideo);
+    }
+
+    async function editVideo(urlVideo) {
         const tmp = { ...paso };
         tmp.video = urlVideo;
         await upDatePaso(tmp);
+        setPaso(tmp);
+    }
+
+    async function eliminarPaso() {
+        swal({
+            title: "¿Está seguro?",
+            text: "Una vez eliminado este paso, ¡no podrá recuperarlo!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then(async (willDelete) => {
+            if (willDelete) {
+                await deletePaso(paso.id);
+
+                swal(`¡El paso ha sido eliminado!`, {
+                    icon: "success",
+                });
+                /* Redirigir a la pagina anterior */
+                navigate(`../administrar-unidad/${paso.idunidad}`);
+            } else {
+                swal(`¡El paso está a salvo!`);
+            }
+        });
     }
 
     if (state == 6 && currentUser.rol === "administrador") {
@@ -150,6 +180,8 @@ export default function EditPaso() {
                         <button className="btn btn-primary" type="submit">Guardar cambio</button>
                     </form>
                 </section>
+
+                <video src={paso.video} controls></video>
 
                 <section className="section-editPaso">
                     <h3>Editar Video</h3>
@@ -189,6 +221,11 @@ export default function EditPaso() {
                         <button className="btn btn-primary" type="submit">Guardar cambio</button>
                     </form>
                 </section>
+
+                <div className="div-deleteCurso">
+                    <button className="btn btn-primary btnred btnDelete" onClick={eliminarPaso}>Eliminar Paso</button>
+                </div>
+
             </main>
         );
     }

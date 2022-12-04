@@ -70,17 +70,9 @@ export default function AdministrarUnidad() {
                 <div
                     className="view-paso"
                     key={paso.id}
+                    onClick={(e) => { editPaso(paso.id) }}
                 >
-                    <h1>{paso.name}</h1>
-                    <div>
-                        <video controls> <source src={paso.video} /> </video>
-                    </div>
-                    <h3>Descripción</h3>
-                    <div> <p>{paso.paso}</p> </div>
-                    <div className="botones">
-                        <button type="submit" className="btn btn-primary" onClick={e => (editPaso(paso.id))}>Editar</button>
-                        <button className="btn btn-primary btnred btnDelete" onClick={e => (eliminarPaso(paso.id))}>Eliminar Paso</button>
-                    </div>
+                    <div><h2>{paso.name}</h2></div>
                 </div>
             ));
         }
@@ -99,7 +91,6 @@ export default function AdministrarUnidad() {
                 eliminarPasos();
                 /* Eliminar la unidad */
                 await deleteUnidad(unidad.id);
-                //eliminarUnidades();
 
                 swal(`¡La unidad ${unidad.name} ha sido eliminado!`, {
                     icon: "success",
@@ -116,27 +107,6 @@ export default function AdministrarUnidad() {
         pasos.map(async (paso) => (
             await deletePaso(paso.id)
         ));
-    }
-
-    async function eliminarPaso(idPaso) {
-        swal({
-            title: "¿Está seguro?",
-            text: "Una vez eliminado este paso, ¡no podrá recuperarlo!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then(async (willDelete) => {
-            if (willDelete) {
-                await deletePaso(idPaso);
-                getData();
-
-                swal(`¡El paso ha sido eliminado!`, {
-                    icon: "success",
-                });
-            } else {
-                swal(`¡El paso está a salvo!`);
-            }
-        });
     }
 
     function editPaso(uuid) {
@@ -252,6 +222,7 @@ export default function AdministrarUnidad() {
 
                 <section>
                     <div className="div-addPaso">
+                        <h3>Pasos</h3>
                         {renderPasos()}
                     </div>
                 </section>
