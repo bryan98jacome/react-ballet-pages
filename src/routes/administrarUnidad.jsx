@@ -6,6 +6,12 @@ import swal from "sweetalert";
 import { useFormik } from 'formik';
 import Form from 'react-bootstrap/Form';
 import { v4 as uuid } from "uuid";
+//import { useQuill } from "react-quilljs";
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
+//import toolbar from "../toolbar";
+//import QuillToolbar, { modules, formats } from "../toolbar";
+import QuillToolbar, { formats, modules } from "../toolbar";
 
 export default function AdministrarUnidad() {
 
@@ -24,6 +30,12 @@ export default function AdministrarUnidad() {
     const [data, setData] = useState('');
     const [file, setFile] = useState({});
     const [paso, setPaso] = useState('');
+
+    /*const { quill, quillRef } = useQuill({
+        modules: {
+            toolbar: toolbar
+        }
+    });*/
 
     function handledUserLoggedIn(user) {
         setcurrentUser(user);
@@ -51,6 +63,11 @@ export default function AdministrarUnidad() {
 
         const resPasos = await getPasosUnidad(idunidad);
         setPasos([...resPasos]);
+    }
+
+    function onPaso(e) {
+        setPaso(e);
+        setInputPaso(e.target.value);
     }
 
     function renderPasos() {
@@ -124,27 +141,25 @@ export default function AdministrarUnidad() {
     });
 
     async function clickSave() {
-        if (data == "addPaso") {
-            const noexist = await existsPaso(nombrePaso, unidad.idCurso);
-            if (noexist) {
-                FilePicker();
-                swal(
-                    `El paso ${nombrePaso}`,
-                    "se agrera en 10 segundos",
-                    {
-                        timer: 10000,
-                        buttons: false
-                    }
-                );
-                setInputNombrePaso('');
-                setInputPaso('');
-            } else {
-                swal(
-                    `El paso ${nombrePaso} ya existe`,
-                    "Intenta de nuevo",
-                    "error"
-                );
-            }
+        const noexist = await existsPaso(nombrePaso, unidad.idCurso);
+        if (noexist) {
+            FilePicker();
+            swal(
+                `El paso ${nombrePaso}`,
+                "se agrera en 10 segundos",
+                {
+                    timer: 10000,
+                    buttons: false
+                }
+            );
+            setInputNombrePaso('');
+            setInputPaso('');
+        } else {
+            swal(
+                `El paso ${nombrePaso} ya existe`,
+                "Intenta de nuevo",
+                "error"
+            );
         }
     }
 
@@ -165,6 +180,7 @@ export default function AdministrarUnidad() {
     }
 
     async function addPaso(idPaso, urlVideo) {
+        console.log("PASO: " + paso);
         const cont = pasos.length;
         const tmp = {};
         tmp.id = idPaso;
@@ -174,6 +190,7 @@ export default function AdministrarUnidad() {
         tmp.name = nombrePaso;
         tmp.video = urlVideo;
         tmp.paso = paso;
+        //tmp.paso = JSON.stringify(quill.getContents());
         tmp.order = cont + 1;
         await upDatePaso(tmp);
         getData();
@@ -202,19 +219,21 @@ export default function AdministrarUnidad() {
                                     }}
                                 />
                             </Form.Group>
-                            <textarea
-                                id="texto"
-                                name="addPaso"
-                                className="form-control"
-                                type="text"
-                                required
-                                value={inputPaso}
-                                onChange={(e) => {
-                                    setInputPaso(e.target.value);
-                                    setPaso(e.target.value);
-                                    setData(e.target.name);
-                                }}
-                            />
+
+                            <div className="textEditor">
+                                <QuillToolbar toolbarId={'t1'} />
+                                <ReactQuill
+                                    theme="snow"
+                                    value={inputPaso}
+                                    onChange={(e) => {
+                                        setInputPaso(e);
+                                        setPaso(e);
+                                    }}
+                                    modules={modules('t1')}
+                                    formats={formats}
+                                />
+                            </div>
+
                             <button type="submit" className="btn btn-primary">Agregar</button>
                         </form>
                     </div>
@@ -244,3 +263,24 @@ export default function AdministrarUnidad() {
         </AuthProvider>
     );
 }
+
+/*
+
+<div className="textEditor">
+                                <div ref={quillRef}></div>
+                            </div>
+
+<textarea
+                                id="texto"
+                                name="addPaso"
+                                className="form-control"
+                                type="text"
+                                required
+                                value={inputPaso}
+                                onChange={(e) => {
+                                    setInputPaso(e.target.value);
+                                    setPaso(e.target.value);
+                                    setData(e.target.name);
+                                }}
+                            />
+*/

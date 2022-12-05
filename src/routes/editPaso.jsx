@@ -5,6 +5,9 @@ import { deletePaso, existsPaso, getPaso, getProfilePhotoUrl, setProfilePaso, up
 import { useFormik } from 'formik';
 import Form from 'react-bootstrap/Form';
 import swal from "sweetalert";
+import 'react-quill/dist/quill.snow.css';
+import ReactQuill from "react-quill";
+import QuillToolbar, { modules, formats } from "../toolbar";
 
 export default function EditPaso() {
 
@@ -46,6 +49,10 @@ export default function EditPaso() {
     async function getData() {
         const resPaso = await getPaso(idpaso);
         setPaso(resPaso);
+        //console.log(resPaso.paso);
+        setInputDes(resPaso.paso);
+        //console.log(dataPaso);
+
     }
 
     const formik = useFormik({
@@ -59,6 +66,7 @@ export default function EditPaso() {
     });
 
     async function clickSave() {
+        console.log(data);
         if (data == "nombre") {
             const noexist = await existsPaso(nombre, paso.idunidad);
             if (noexist) {
@@ -91,7 +99,7 @@ export default function EditPaso() {
                 "se actualizo con exito",
                 "success",
             );
-            setInputDes('');
+            setInputDes(tmp.paso);
         }
 
         if (data == "video") {
@@ -181,7 +189,9 @@ export default function EditPaso() {
                     </form>
                 </section>
 
-                <video src={paso.video} controls></video>
+                <div className="videoPaso">
+                    <video src={paso.video} controls></video>
+                </div>
 
                 <section className="section-editPaso">
                     <h3>Editar Video</h3>
@@ -205,19 +215,20 @@ export default function EditPaso() {
                     <h3>Editar Descripción</h3>
                     <form className="form-editPaso" onSubmit={formik.handleSubmit}>
                         <label htmlFor="nombre" className="form-label">Descripción</label>
-                        <textarea
-                            id="texto"
-                            name="descripcion"
-                            className="form-control"
-                            type="text"
-                            required
-                            value={inputDes}
-                            onChange={(e) => {
-                                setInputDes(e.target.value);
-                                setDescripcion(e.target.value);
-                                setData(e.target.name);
-                            }}
-                        />
+                        <div className="textEditor">
+                            <QuillToolbar toolbarId={'t1'} />
+                            <ReactQuill
+                                theme="snow"
+                                value={inputDes}
+                                onChange={(e) => {
+                                    setInputDes(e);
+                                    setDescripcion(e);
+                                    setData("descripcion");
+                                }}
+                                modules={modules('t1')}
+                                formats={formats}
+                            />
+                        </div>
                         <button className="btn btn-primary" type="submit">Guardar cambio</button>
                     </form>
                 </section>
@@ -239,3 +250,24 @@ export default function EditPaso() {
         </AuthProvider>
     );
 }
+
+/*
+    IMPORTANTE: con esto mostramos el texto con el formato deseado!!!!!!!!!!!!!
+    <div className="" dangerouslySetInnerHTML={{ __html: paso.paso }} />
+*/
+
+/*
+<textarea
+                            id="texto"
+                            name="descripcion"
+                            className="form-control"
+                            type="text"
+                            required
+                            value={inputDes}
+                            onChange={(e) => {
+                                setInputDes(e.target.value);
+                                setDescripcion(e.target.value);
+                                setData(e.target.name);
+                            }}
+                        />
+*/
