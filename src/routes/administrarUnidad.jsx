@@ -31,12 +31,6 @@ export default function AdministrarUnidad() {
     const [file, setFile] = useState({});
     const [paso, setPaso] = useState('');
 
-    /*const { quill, quillRef } = useQuill({
-        modules: {
-            toolbar: toolbar
-        }
-    });*/
-
     function handledUserLoggedIn(user) {
         setcurrentUser(user);
         if (user.rol === "administrador") {
@@ -180,7 +174,6 @@ export default function AdministrarUnidad() {
     }
 
     async function addPaso(idPaso, urlVideo) {
-        console.log("PASO: " + paso);
         const cont = pasos.length;
         const tmp = {};
         tmp.id = idPaso;
@@ -190,7 +183,6 @@ export default function AdministrarUnidad() {
         tmp.name = nombrePaso;
         tmp.video = urlVideo;
         tmp.paso = paso;
-        //tmp.paso = JSON.stringify(quill.getContents());
         tmp.order = cont + 1;
         await upDatePaso(tmp);
         getData();
