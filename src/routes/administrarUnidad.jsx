@@ -27,7 +27,6 @@ export default function AdministrarUnidad() {
     const [inputPaso, setInputPaso] = useState("");
     const [inputNombrePaso, setInputNombrePaso] = useState("");
 
-    const [data, setData] = useState('');
     const [file, setFile] = useState({});
     const [paso, setPaso] = useState('');
 
@@ -57,11 +56,6 @@ export default function AdministrarUnidad() {
 
         const resPasos = await getPasosUnidad(idunidad);
         setPasos([...resPasos]);
-    }
-
-    function onPaso(e) {
-        setPaso(e);
-        setInputPaso(e.target.value);
     }
 
     function renderPasos() {
@@ -188,7 +182,7 @@ export default function AdministrarUnidad() {
         getData();
     }
 
-    if (state == 6 && currentUser.rol === "administrador") {
+    if (state === 6 && currentUser.rol === "administrador") {
         return (
             <main className="admin-nivel">
                 <h2>{unidad.name}</h2>

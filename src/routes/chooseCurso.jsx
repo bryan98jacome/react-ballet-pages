@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
 import { useFormik } from "formik";
 import addPhoto from "../img/addPhoto.png";
-import { existsCurso, getProfilePhotoUrl, setCursoPhoto, upDateCurso } from "../firebase/firebase";
+import { existsCurso, getDocentes, getProfilePhotoUrl, setCursoPhoto, upDateCurso } from "../firebase/firebase";
 import { v4 as uuid } from "uuid";
 import swal from "sweetalert";
+import { Form } from "react-bootstrap";
 
 export default function ChoosCurso() {
 
@@ -15,12 +16,15 @@ export default function ChoosCurso() {
     const [nombre, setNombre] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [file, setFile] = useState({});
+    const [docentes, setDocentes] = useState([]);
+    const [docente, setDocente] = useState('');
     const fileRef = useRef();
 
     function handledUserLoggedIn(user) {
         setcurrentUser(user);
         if (user.rol === "administrador") {
             setState(6);
+            getData();
         } else {
             navigate("../");
         }
@@ -34,6 +38,11 @@ export default function ChoosCurso() {
     function handleUserNotLoggedIn() {
         setState(4);
         navigate("../");
+    }
+
+    async function getData() {
+        const resDocentes = await getDocentes();
+        setDocentes([...resDocentes]);
     }
 
     const formik = useFormik({
@@ -55,17 +64,25 @@ export default function ChoosCurso() {
     async function handleChangeFile() {
         const noexist = await existsCurso(nombre);
         if (noexist) {
-            const fileReader = new FileReader();
-            if (fileReader && file && file.length > 0) {
-                fileReader.readAsArrayBuffer(file[0]);
-                fileReader.onload = async function () {
-                    const imageData = fileReader.result;
-                    const res = await setCursoPhoto(nombre, imageData);
-                    if (res) {
-                        const urlPhoto = await getProfilePhotoUrl(res.metadata.fullPath);
-                        handleContinue(urlPhoto);
-                    }
-                };
+            if (docente === '' || docente === 'false') {
+                swal(
+                    `Debe seleccionar un Instructor`,
+                    "Intenta de nuevo",
+                    "error"
+                );
+            } else {
+                const fileReader = new FileReader();
+                if (fileReader && file && file.length > 0) {
+                    fileReader.readAsArrayBuffer(file[0]);
+                    fileReader.onload = async function () {
+                        const imageData = fileReader.result;
+                        const res = await setCursoPhoto(nombre, imageData);
+                        if (res) {
+                            const urlPhoto = await getProfilePhotoUrl(res.metadata.fullPath);
+                            handleContinue(urlPhoto);
+                        }
+                    };
+                }
             }
         } else {
             //Mensaje que ya existe el docente
@@ -83,6 +100,7 @@ export default function ChoosCurso() {
         tmp.name = nombre;
         tmp.descripcion = descripcion;
         tmp.photo = urlPhoto;
+        tmp.docente = docente;
         await upDateCurso(tmp);
         swal(
             `El curso ${nombre}`,
@@ -92,7 +110,7 @@ export default function ChoosCurso() {
         navigate("../administrar-web");
     }
 
-    if (state == 6 && currentUser.rol === "administrador") {
+    if (state === 6 && currentUser.rol === "administrador") {
         return (
             <main className="main-choosCurso">
                 <div className="div-title">Datos del curso</div>
@@ -127,11 +145,26 @@ export default function ChoosCurso() {
                             }}
                             required
                         />
+
+                        <div className="div-intructorInput">
+                            <label htmlFor="firstName" className="form-label">
+                                Instructor
+                            </label>
+                            <Form.Control as="select" onChange={(e) => { setDocente(e.target.value) }}>
+                                <option value={false}>Select instructor</option>
+                                {
+                                    docentes.map((docente) => (
+                                        <option value={docente.id} key={docente.id}>{docente.username}</option>
+                                    ))
+                                }
+                            </Form.Control>
+                        </div>
+
                         <div className="div-photoDocente">
                             {file.length > 0 ? (
-                                <img src={URL.createObjectURL(file[0])} />
+                                <img src={URL.createObjectURL(file[0])} alt='' />
                             ) : (
-                                <img src={addPhoto} />
+                                <img src={addPhoto} alt='' />
                             )}
                             <button
                                 className="btn btn-primary"
