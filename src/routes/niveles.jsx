@@ -1,6 +1,8 @@
 import img from "../img/3 5ta posicion de brazos.JPG";
 import fotoPerfil from "../img/docente-ninette-duran.jpg";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Niveles = () => {
     const [mostrar, setMostrar] = useState(false);
@@ -33,7 +35,7 @@ const Niveles = () => {
                         <div className="cont-button">
                             <strong>Empieza hoy</strong>
                             <p>Dale click a Inscribirse para comenzar con el curso</p>
-                            <button>Inscribirse</button>
+                            <Button as={Link} to='../curso-niveles' className="button-Ins">Inscribirse</Button>
                         </div>
                     </div>
                 </div>

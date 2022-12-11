@@ -59,17 +59,17 @@
     font-size: 15px;
 }
 
-.cont-button button {
-    border: none;
-    background-color: lightseagreen;
-    color: #f2f2f2;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 25px;
-    margin-right: 25px;
-    padding: 15px;
+.button-Ins {
+    border: none !important;
+    background-color: lightseagreen !important;
+    color: #f2f2f2 !important;
+    border-radius: 5px !important;
+    margin-top: 10px !important;
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+    padding: 15px !important;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .div-nav {

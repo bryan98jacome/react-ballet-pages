@@ -1,0 +1,15 @@
+
+.bg-color{
+    background-color: rgb(199, 199, 199);
+}
+
+.span-title{
+    color: black !important;
+    margin-top: 25px;
+}
+
+.scroll{
+    height: 650px !important;
+    overflow: hidden;
+    overflow-y: scroll;
+}

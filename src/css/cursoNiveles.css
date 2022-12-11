@@ -1,0 +1,8 @@
+.cursoNiveles {
+    padding-top: 50px;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    min-height: 550px;
+}

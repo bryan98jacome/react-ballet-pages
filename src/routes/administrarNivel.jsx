@@ -187,7 +187,7 @@ export default function AdministrarNivel() {
         ));
     }
 
-    if (state == 6 && currentUser.rol === "administrador") {
+    if (state === 6 && currentUser.rol === "administrador") {
         return (
             <main className="admin-nivel">
                 <h2>{nivel.name}</h2>

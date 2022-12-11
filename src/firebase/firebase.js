@@ -243,7 +243,7 @@ export async function getCursos() {
   }
 }
 
-/*Consulta del docente mediante el id*/
+/*Consultar el curso mediante el id*/
 export async function getCurso(uuid) {
   try {
     const docRef = doc(db, "cursos", uuid);
@@ -287,6 +287,7 @@ export async function existsNivel(name, idCurso) {
   });
   return niveles.length > 0 ? false : true;
 }
+
 /*Consultar los niveles*/
 export async function getNiveles(id) {
   const niveles = [];
