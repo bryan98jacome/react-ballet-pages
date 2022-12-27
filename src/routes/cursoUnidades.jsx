@@ -13,22 +13,20 @@ export default function CursoUnidades() {
     const [currentUser, setcurrentUser] = useState({});
     const [unidades, setUnidades] = useState([]);
     const [pasos, setPasos] = useState([]);
+    const [paso, setPaso] = useState({});
     const [curso, setCurso] = useState({});
     const [nivel, setNivel] = useState({});
 
     async function handledUserLoggedIn(user) {
         setcurrentUser(user);
-        if (user.rol === "administrador") {
-            setState(6);
-            getData();
-        } else {
-            navigate("../");
-        }
+        setState(6);
+        getData();
     }
 
     function handleUserNotRegistered(user) {
         setState(3);
         navigate("../");
+
     }
 
     function handleUserNotLoggedIn() {
@@ -93,7 +91,7 @@ export default function CursoUnidades() {
                 <div key={paso.id}>
                     {paso.idunidad == idunidad ?
                         <li key={paso.id} className="w-100">
-                            <a href="#" className="nav-link px-0"><span className="d-none d-sm-inline span-title">{paso.name}</span></a>
+                            <a className="nav-link px-0" onClick={e => (clickPaso(paso.id))}><span className="d-none d-sm-inline span-title pointer">{paso.name}</span></a>
                         </li> :
                         <></>
                     }
@@ -105,9 +103,30 @@ export default function CursoUnidades() {
 
     }
 
+    async function clickPaso(idPaso) {
+        //console.log(idPaso);
+        const paso = await getPaso(idPaso);
+        setPaso(paso);
+    }
+
+    function renderPaso() {
+        if (paso.id === null) {
+            return (<div></div>);
+        } else {
+            return (
+                <div className="div-renderPaso">
+                    <h2>{paso.name}</h2>
+                    <video src={paso.video} controls controlsList="nodownload"></video>
+                    <h3>Indicación</h3>
+                    <div dangerouslySetInnerHTML={{ __html: paso.paso }} />
+                </div>
+            );
+        }
+    }
+
     if (state === 6) {
         return (
-            <main>
+            <main className="main-cursoUnidad">
                 <div className="container-fluid">
                     <div className="row flex-nowrap ">
                         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-color scroll">
@@ -119,7 +138,9 @@ export default function CursoUnidades() {
                             </div>
                         </div>
                         <div className="col py-3 cursoNiveles">
-                            <h2>{nivel.name}</h2>
+                            {
+                                renderPaso()
+                            }
                         </div>
                     </div>
                 </div>

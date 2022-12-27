@@ -1,6 +1,5 @@
-
-.bg-color{
-    background-color: rgb(199, 199, 199);
+.main-cursoUnidad{
+    background-color: var(--primary-color);
 }
 
 .span-title{
@@ -12,4 +11,31 @@
     height: 650px !important;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.cursoNiveles{
+    height: 650px !important;
+    overflow-y: scroll;
+}
+
+.div-renderPaso{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-renderPaso h2, h3{
+    display: flex;
+    width: 80%;
+    align-items: flex-start;
+    margin: 25px 0 25px 0;
+}
+
+.div-renderPaso video{ 
+    width: 60%;
+    margin-bottom: 25px;
 }

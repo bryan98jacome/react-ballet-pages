@@ -14,12 +14,8 @@ export default function CursoNiveles() {
 
     async function handledUserLoggedIn(user) {
         setcurrentUser(user);
-        if (user.rol === "administrador") {
-            setState(6);
-            getData();
-        } else {
-            navigate("../");
-        }
+        setState(6);
+        getData();
     }
 
     function handleUserNotRegistered(user) {
