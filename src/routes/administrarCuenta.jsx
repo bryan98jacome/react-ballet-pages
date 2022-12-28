@@ -191,11 +191,11 @@ export default function AdministrarCuenta() {
     sendEmailVerification(auth.currentUser).then(async () => { });
   }
 
-  if (state == 6) {
+  if (state === 6) {
     return (
       <main className="main-AdminCuenta">
         <div className="div-imgAdminCuenta">
-          <img src={currentUser.profilePicture} />
+          <img src={currentUser.profilePicture} alt="foto de perfil" />
           <p>Bienvenido, {currentUser.username}</p>
         </div>
         <div className="div-infoBasica">
@@ -213,16 +213,16 @@ export default function AdministrarCuenta() {
                 <div className="div-center">
                   <p>Agregar una foto para personalizar tu cuenta</p>
                 </div>
-                <img src={currentUser.profilePicture} />
+                <img src={currentUser.profilePicture} alt="foto de perfil" />
               </button>
             </DropdownToggle>
             <DropdownMenu className="dropdownenu-info">
               <form onSubmit={formik.handleSubmit}>
                 <div className="div-newPhotoPro">
                   {file.length > 0 ? (
-                    <img src={URL.createObjectURL(file[0])} />
+                    <img src={URL.createObjectURL(file[0])} alt="foto temporal" />
                   ) : (
-                    <img src={addPhoto} />
+                    <img src={addPhoto} alt="foto add"/>
                   )}
                   <button
                     className="btn btn-primary"
@@ -452,7 +452,7 @@ export default function AdministrarCuenta() {
                 </div>
                 <div className="div-center">
                   <p>{currentUser.email}</p>
-                  {currentUser.emailVerified == false ? (
+                  {currentUser.emailVerified === false ? (
                     <p style={{ color: "red" }}>Correo no verificado</p>
                   ) : (
                     <></>
@@ -464,7 +464,7 @@ export default function AdministrarCuenta() {
             <DropdownMenu className="dropdownenu-info">
               <form>
                 <h3>Verificar correo electrónico</h3>
-                {currentUser.emailVerified == false ? (
+                {currentUser.emailVerified === false ? (
                   <p>
                     Presiona en verificar email y revisa el email{" "}
                     {currentUser.email}
@@ -472,7 +472,7 @@ export default function AdministrarCuenta() {
                 ) : (
                   <p>El email {currentUser.email} ya esta verificado</p>
                 )}
-                {currentUser.emailVerified == false ? (
+                {currentUser.emailVerified === false ? (
                   <div className="div-buttonEmail">
                     <button
                       className="btn btn-primary"

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import img from '../img/singup.jpg';
-import { auth, existsEmail, userExists } from "../firebase/firebase";
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, existsEmail } from "../firebase/firebase";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
 import { Nav } from "react-bootstrap";
 import { useFormik } from 'formik';
+import swal from "sweetalert";
 
 const LogIn = () => {
     /*
@@ -26,10 +27,8 @@ const LogIn = () => {
 
         async function signInWithGoogle(googleProvider) {
             try {
-                const res = await signInWithPopup(auth, googleProvider);
-                console.log(res);
+                await signInWithPopup(auth, googleProvider);
             } catch (error) {
-                console.error(error);
             }
         }
     }
@@ -53,7 +52,6 @@ const LogIn = () => {
         },
         onSubmit: values => {
             handleSubmit();
-
         },
     });
 
@@ -61,18 +59,28 @@ const LogIn = () => {
         const siexist = await existsEmail(email);
         if (siexist) {
             try {
-                const res = await signInWithEmailAndPassword(auth, email, password);
+                await signInWithEmailAndPassword(auth, email, password);
             } catch (error) {
                 setError(1);
             }
-
         } else {
             setError(2);
         }
-
     }
 
-    if (state == 4) {
+    function clickRecuperar() {
+        if (email === '') {
+            swal("No hay Email!", "Debe llenar el campo email", "warning");
+        } else {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    swal("Correo enviado!", "Revisa tu correo para recuperar tu contraseña", "success");
+                })
+                .catch((error) => { });
+        }
+    }
+
+    if (state === 4) {
         return (
             <main className="main-login">
                 <div className="div-form">
@@ -90,7 +98,7 @@ const LogIn = () => {
                                 }}
                             />
                             {
-                                stateError == 2 ?
+                                stateError === 2 ?
                                     <div className="ms-error">
                                         <p >El correo electrónico no está conectado a una cuenta</p>
                                     </div>
@@ -107,7 +115,7 @@ const LogIn = () => {
                                 }}
                             />
                             {
-                                stateError == 1 ?
+                                stateError === 1 ?
                                     <h2 className="ms-error">La contraseña que ingresaste es incorrecta</h2>
                                     : <></>
                             }
@@ -126,7 +134,9 @@ const LogIn = () => {
                                         </svg>
                                 }
                             </div>
-                            <a className="a-recupera" href="#">Recuperar Contraseña</a>
+                            <Nav.Link className="a-recupera" onClick={clickRecuperar}>
+                                Recuperar Contraseña
+                            </Nav.Link>
                             <button className="btn-login" type="submit">Entrar</button>
                         </form>
                         <div className="div-cuenta">
@@ -147,7 +157,7 @@ const LogIn = () => {
                     </div>
                 </div>
                 <div className='divdiv'>
-                    <img className='img-lg' src={img} />
+                    <img className='img-lg' src={img} alt='imagen login'/>
                 </div>
             </main>
         );

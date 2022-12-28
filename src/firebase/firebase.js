@@ -1,20 +1,17 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import {
   getStorage,
   ref,
   uploadBytes,
   getDownloadURL,
-  getBytes,
   deleteObject,
 } from "firebase/storage";
 import {
   getFirestore,
   collection,
-  addDoc,
   getDocs,
   doc,
   getDoc,
@@ -40,7 +37,6 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-const analytics = getAnalytics(app);
 
 export async function userExists(uid) {
   const docRef = doc(db, "users", uid);
@@ -188,6 +184,17 @@ export async function existsEmailDocente(email) {
     docentes.push(doc.data());
   });
   return docentes.length > 0 ? false : true;
+}
+
+/** Eliminar el docente **/
+export async function deleteDocente(uuid) {
+  try {
+    const docRef = doc(db, "docentes", uuid);
+    await deleteDoc(docRef);
+    await deleteVideoPaso(uuid);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 /******** Servicios de los Cursos ********/
@@ -509,12 +516,7 @@ export async function deletePaso(uuid) {
 
 export async function deleteVideoPaso(uuid) {
   const desertRef = ref(storage, `VideosPasos/${uuid}`);
-  // Delete the file
-  deleteObject(desertRef).then(() => {
-    // File deleted successfully
-  }).catch((error) => {
-    // Uh-oh, an error occurred!
-  });
+  deleteObject(desertRef).then(() => { }).catch((error) => { });
 }
 
 

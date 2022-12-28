@@ -1,9 +1,9 @@
 .main-docentes {
     padding-top: 55px;
     background-color: var(--primary-color);
-    width: 100%;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
+    min-height: 650px;
 }
 
 .titulo-docentes {

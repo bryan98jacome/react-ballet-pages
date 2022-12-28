@@ -24,13 +24,24 @@
     margin-top: 100px;
 }
 
-.div-input { 
+.div-input {
     position: relative;
     margin: 100px 0 50px 0;
 }
 
+.div-recupera { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 55px;
+}
+
 .a-recupera {
     text-decoration: none;
+    font-size: 13px;
+    border: none;
+    background: none;
 }
 
 .div-input form {
@@ -39,7 +50,7 @@
     width: 100%;
 }
 
-.input { 
+.input {
     border: 3px solid black;
     color: var(--text-color);
     background-color: var(--theme-color);
@@ -70,7 +81,7 @@
     cursor: pointer;
 }
 
-.div-input form a { 
+.div-input form a {
     display: flex;
     justify-content: end;
     margin-bottom: 40px;
@@ -143,19 +154,19 @@
     cursor: pointer;
 }
 
-.nav-linkLogin{
+.nav-linkLogin {
     position: absolute;
     width: 140px;
     margin-bottom: 30px;
     text-decoration: none;
 }
 
-.nav-linkLogin a{
+.nav-linkLogin a {
     background-color: blue;
     width: 100%;
 }
 
-.ms-error{
+.ms-error {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,7 +181,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: linear-gradient( rgba(255, 255, 255, 0.389), rgba(255, 255, 255, 0.389)), url("../img/singup.jpg");
+        background: linear-gradient(rgba(255, 255, 255, 0.389), rgba(255, 255, 255, 0.389)), url("../img/singup.jpg");
         width: 100%;
         height: 100%;
         background-size: cover;
@@ -184,7 +195,7 @@
         background-repeat: no-repeat;
         width: 100%;
     }
-    
+
     .div-image {
         display: none;
     }

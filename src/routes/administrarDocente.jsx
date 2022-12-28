@@ -1,9 +1,10 @@
 import AuthProvider from "../components/authProvider";
 import { useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getDocente, getProfilePhotoUrl, upDateDocente, setDocenteProfilePhoto } from "../firebase/firebase";
+import { getDocente, getProfilePhotoUrl, upDateDocente, setDocenteProfilePhoto, deleteDocente } from "../firebase/firebase";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import { useFormik } from 'formik';
+import swal from "sweetalert";
 import Flecha from "../layouts/flecha";
 
 export default function AdministrarDocente() {
@@ -78,14 +79,14 @@ export default function AdministrarDocente() {
     }
 
     function clickDropdown(e) {
-        if (e == "foto") { setDropdownF(!dropdownF); }
-        if (e == "nombre") { setDropdownN(!dropdownN); }
-        if (e == "apellido") { setDropdownA(!dropdownA); }
-        if (e == "fecha") { setDropdownFe(!dropdownFe); }
-        if (e == "descripcion") { setDropdownD(!dropdownD); }
-        if (e == "email") { setDropdownC(!dropdownC); }
-        if (e == "telefono") { setDropdownT(!dropdownT); }
-        if (e == "pais") { setDropdownP(!dropdownP); }
+        if (e === "foto") { setDropdownF(!dropdownF); }
+        if (e === "nombre") { setDropdownN(!dropdownN); }
+        if (e === "apellido") { setDropdownA(!dropdownA); }
+        if (e === "fecha") { setDropdownFe(!dropdownFe); }
+        if (e === "descripcion") { setDropdownD(!dropdownD); }
+        if (e === "email") { setDropdownC(!dropdownC); }
+        if (e === "telefono") { setDropdownT(!dropdownT); }
+        if (e === "pais") { setDropdownP(!dropdownP); }
     }
 
     async function clickSave() {
@@ -94,7 +95,7 @@ export default function AdministrarDocente() {
             setDropdownF(!dropdownF);
         }
 
-        if (data == "nombre") {
+        if (data === "nombre") {
             const tmp = { ...docente };
             tmp.username = nombre;
             await upDateDocente(tmp);
@@ -102,7 +103,7 @@ export default function AdministrarDocente() {
             setDropdownN(!dropdownN);
         }
 
-        if (data == "apellido") {
+        if (data === "apellido") {
             const tmp = { ...docente };
             tmp.apellido = apellido;
             await upDateDocente(tmp);
@@ -110,7 +111,7 @@ export default function AdministrarDocente() {
             setDropdownA(!dropdownA);
         }
 
-        if (data == "fecha") {
+        if (data === "fecha") {
             const tmp = { ...docente };
             tmp.fecha = fecha;
             await upDateDocente(tmp);
@@ -118,7 +119,7 @@ export default function AdministrarDocente() {
             setDropdownFe(!dropdownFe);
         }
 
-        if (data == "descripcion") {
+        if (data === "descripcion") {
             const tmp = { ...docente };
             tmp.descripcion = descripcion;
             await upDateDocente(tmp);
@@ -126,7 +127,7 @@ export default function AdministrarDocente() {
             setDropdownD(!dropdownD);
         }
 
-        if (data == "telefono") {
+        if (data === "telefono") {
             const tmp = { ...docente };
             tmp.telefono = telefono;
             await upDateDocente(tmp);
@@ -134,7 +135,7 @@ export default function AdministrarDocente() {
             setDropdownT(!dropdownT);
         }
 
-        if (data == "pais") {
+        if (data === "pais") {
             const tmp = { ...docente };
             tmp.pais = pais;
             await upDateDocente(tmp);
@@ -161,7 +162,28 @@ export default function AdministrarDocente() {
         }
     }
 
-    if (state == 6 && currentUser.rol === "administrador") {
+    function clickDeleteDocente() {
+        swal({
+            title: "¿Está seguro?",
+            text: "Una vez eliminado este docente, ¡no podrá recuperarlo!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then(async (willDelete) => {
+            if (willDelete) {
+                await deleteDocente(docente.id);
+                swal(`¡El docente ${docente.username} ha sido eliminado!`, {
+                    icon: "success",
+                });
+                /* Redirigir a la pagina anterior */
+                navigate("../administrar-web");
+            } else {
+                swal(`¡El docente ${docente.username} está a salvo!`);
+            }
+        });
+    }
+
+    if (state === 6 && currentUser.rol === "administrador") {
         return (
             <main className="main-AdminDocente">
                 <div className="div-infoBasica">
@@ -172,7 +194,7 @@ export default function AdministrarDocente() {
                             <button className="button-infoBasica button-final" onClick={(e) => { clickDropdown("foto") }}>
                                 <div className="div-rigth"><p>Foto</p></div>
                                 <div className="div-center"><p>Agregar una foto para personalizar tu cuenta</p></div>
-                                <img src={docente.profilePicture} />
+                                <img src={docente.profilePicture} alt="foto de docente"/>
                             </button>
                         </DropdownToggle>
                         <DropdownMenu className="dropdownenu-info">
@@ -181,9 +203,9 @@ export default function AdministrarDocente() {
                                     {
                                         file.length > 0 ?
 
-                                            <img src={URL.createObjectURL(file[0])} />
+                                            <img src={URL.createObjectURL(file[0])} alt="foto de archivo"/>
                                             :
-                                            <img src={docente.profilePicture} />
+                                            <img src={docente.profilePicture} alt="foto de docente temporal"/>
                                     }
                                     <button className="btn btn-primary" onClick={handleOpenFilePicker}>Actualizar foto de Perfil</button>
                                 </div>
@@ -415,6 +437,10 @@ export default function AdministrarDocente() {
                             </form>
                         </DropdownMenu>
                     </Dropdown>
+                </div>
+
+                <div className="div-deleteCurso">
+                    <button className="btn btn-primary btnred btnDelete" onClick={clickDeleteDocente}>Eliminar Docente</button>
 
                 </div>
             </main>

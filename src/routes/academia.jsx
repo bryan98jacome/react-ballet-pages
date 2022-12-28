@@ -1,15 +1,7 @@
 import icono from '../img/icon-row-down.png';
-//import video1 from '../videos/video1.mp4';
-//import video2 from '../videos/video2.mp4';
-//import video3 from '../videos/video3.mp4';
-//import video4 from '../videos/video4.mp4';
 import Carousel from 'react-bootstrap/Carousel';
 
 const Academia = () => { 
-
-    function cargarVideo(url) {
-        document.getElementById('slider').src = url;
-    }
 
     return (
         <main className="main-academy">
@@ -18,7 +10,7 @@ const Academia = () => {
                 <div className="text-academy"><p>La academia online para la enseñanza de la Metodologia Cubana de Ballet tiene como objetivo acercar
                     a maestros de todas partes del mundo al método de enseñanza de la técnica cubana de ballet con su programa de estudio para cada nivel.</p></div>
                 <div className="icon-academy">
-                    <img src={icono} />
+                    <img src={icono} alt='imagen icono' />
                 </div>
                 <div className="text-academy"><p>La academia online constituye una importante herramienta teórica y práctica al alcance de los maestros en todas
                     partes del mundo para el análisis y desarrollo del estudio de la tecnica del ballet con una metodología fundamentada por grandes maestros
@@ -26,7 +18,7 @@ const Academia = () => {
                     la anatomía, de la psicología, del entrenamiento, de la kinesiología, de la pedagogia, entre otros, en función de la creación de un método
                     sólido y bien estructurado. </p></div>
                 <div className="icon-academy">
-                    <img src={icono} />
+                    <img src={icono} alt="foto de icono"/>
                 </div>
                 <div className="text-academy"><p><strong>Muchos maestros de distintas partes del mundo se han formado bajo el método de enseñanza cubano de ballet
                     obteniendo grandes resultados a nivel internacional.</strong></p></div>
