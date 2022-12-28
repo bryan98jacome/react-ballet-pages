@@ -39,3 +39,10 @@
     width: 60%;
     margin-bottom: 25px;
 }
+
+.div-pasoCursoUnidades{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+}

@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import AuthProvider from "../components/authProvider";
 import { getCurso, getNiveles } from "../firebase/firebase";
 
 export default function CursoNiveles() {
+
+    let {idcurso} = useParams();
 
     const navigate = useNavigate();
 
@@ -29,9 +31,9 @@ export default function CursoNiveles() {
     }
 
     async function getData() {
-        const res = await getCurso('5e3e910f-78d6-4e5a-9117-71b8e16fb962');
+        const res = await getCurso(idcurso);
         setCurso(res);
-        const resNiveles = await getNiveles('5e3e910f-78d6-4e5a-9117-71b8e16fb962');
+        const resNiveles = await getNiveles(idcurso);
         setNiveles([...resNiveles]);
     }
 
@@ -73,6 +75,7 @@ export default function CursoNiveles() {
             </main>
         );
     }
+
     return (
         <AuthProvider
             onUserLoggedIn={handledUserLoggedIn}

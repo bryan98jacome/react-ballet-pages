@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import AuthProvider from "../components/authProvider";
-import { getCurso, getNivel, getPaso, getPasosNivel, getPasosUnidad, getUnidades } from "../firebase/firebase";
+import { getCurso, getNivel, getPaso, getPasosNivel, getPasosUnidad, getUnidades, getUnidadesNivel } from "../firebase/firebase";
 
 export default function CursoUnidades() {
 
@@ -35,11 +35,9 @@ export default function CursoUnidades() {
     }
 
     async function getData() {
-        const res = await getCurso('5e3e910f-78d6-4e5a-9117-71b8e16fb962');
-        setCurso(res);
         const resNivel = await getNivel(idnivel);
         setNivel(resNivel);
-        const resUnidades = await getUnidades('5e3e910f-78d6-4e5a-9117-71b8e16fb962');
+        const resUnidades = await getUnidadesNivel(idnivel);
         setUnidades([...resUnidades]);
         const resPasos = await getPasosNivel(idnivel);
         setPasos([...resPasos]);
@@ -104,21 +102,20 @@ export default function CursoUnidades() {
     }
 
     async function clickPaso(idPaso) {
-        //console.log(idPaso);
         const paso = await getPaso(idPaso);
         setPaso(paso);
     }
 
     function renderPaso() {
-        if (paso.id === null) {
-            return (<div></div>);
+        if (paso.name === undefined) {
+            return (<div><h2>Selecciona un paso</h2></div>);
         } else {
             return (
                 <div className="div-renderPaso">
                     <h2>{paso.name}</h2>
                     <video src={paso.video} controls controlsList="nodownload"></video>
                     <h3>Indicación</h3>
-                    <div dangerouslySetInnerHTML={{ __html: paso.paso }} />
+                    <div className="div-pasoCursoUnidades" dangerouslySetInnerHTML={{ __html: paso.paso }} />
                 </div>
             );
         }

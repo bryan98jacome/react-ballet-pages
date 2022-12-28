@@ -61,7 +61,10 @@ export default function NavegationBar() {
         navigate('../react-ballet-pages/administrar-web');
     }
 
-    function clickMiscursos() { }
+    function clickMiscursos() {
+        setDropdown(!dropdown);
+        navigate('../react-ballet-pages/mis-cursos');
+    }
 
     if (state == 6) {
         return (

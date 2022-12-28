@@ -1,0 +1,19 @@
+.main-misCursos {
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    min-height: 650px;
+}
+
+.section-misCursos {
+    margin: 25px;
+    width: 100%;
+}
+
+.divCursos-misCursos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+}
