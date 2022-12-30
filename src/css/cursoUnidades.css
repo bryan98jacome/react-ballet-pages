@@ -1,48 +1,162 @@
-.main-cursoUnidad{
+.main-cursoUnidad {
     background-color: var(--primary-color);
+    min-height: 650px;
 }
 
-.span-title{
-    color: black !important;
-    margin-top: 25px;
+.divRow-cursoUnidad {
+    width: 100%
 }
 
-.scroll{
+.pasos-cursoUnidad {
     height: 650px !important;
     overflow: hidden;
     overflow-y: scroll;
+    display: block;
+    align-items: center;
+    float: left;
+    width: 20%;
 }
 
-.pointer{
-    cursor: pointer;
-}
-
-.cursoNiveles{
-    height: 650px !important;
+.videos-cursoUnidad {
+    overflow: hidden;
     overflow-y: scroll;
+    display: block;
+    float: right;
+    width: 80%;
+    height: 650px;
+    padding: 25px;
 }
 
-.div-renderPaso{
+.h1-cursoUnidad {
+    font-size: xx-large;
+    margin: 25px 0 25px 0;
+}
+
+.ulPasos-cursoUnidad {
+    list-style: none;
+    margin-right: 25px;
+}
+
+.div-renderPaso {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.div-renderPaso h2, h3{
+.div-renderPaso h2,
+h3 {
     display: flex;
     width: 80%;
     align-items: flex-start;
     margin: 25px 0 25px 0;
 }
 
-.div-renderPaso video{ 
+.div-renderPaso h2,
+h3 {
+    display: flex;
+    width: 80%;
+    align-items: flex-start;
+    margin: 25px 0 25px 0;
+}
+
+.div-renderPaso video {
     width: 60%;
     margin-bottom: 25px;
 }
 
-.div-pasoCursoUnidades{
+.div-pasoCursoUnidades {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 80%;
 }
+
+.li-cursoUnidades {
+    text-align: justify;
+    margin: 0 25px 25px 0;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.682); 
+    /*list-style-type: disc;*/
+    list-style-type: "\26AB";
+}
+
+
+
+.span-cursoUnidades {
+    font-size: x-large;
+}
+
+@media(max-width: 768px) {
+    .divRow-cursoUnidad {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pasos-cursoUnidad {
+        width: 100%;
+    }
+
+    .videos-cursoUnidad {
+        width: 100%;
+    }
+}
+
+
+/*
+.span-title {
+    color: black !important;
+    margin-top: 25px;
+}
+
+.scroll {
+    height: 650px !important;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.cursoNiveles {
+    height: 650px !important;
+    overflow-y: scroll;
+}
+
+.div-renderPaso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-renderPaso h2,
+h3 {
+    display: flex;
+    width: 80%;
+    align-items: flex-start;
+    margin: 25px 0 25px 0;
+}
+
+.div-renderPaso video {
+    width: 60%;
+    margin-bottom: 25px;
+}
+
+.div-pasoCursoUnidades {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+}
+
+@media(max-width: 767px) {
+    .row {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .scroll{
+        align-items: center !important;
+    }
+}
+*/

@@ -59,12 +59,12 @@ export default function CursoUnidades() {
             return unidades.map((unidad) => (
                 <li key={unidad.id}>
 
-                    <a data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <i className="fs-4 bi-speedometer2">
-                            <span className="ms-1 d-none d-sm-inline span-title">{unidad.name}</span>
+                    <a>
+                        <i>
+                            <span className="span-cursoUnidades">{unidad.name}</span>
                         </i>
                     </a>
-                    <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    <ul>
                         {renderPasos(unidad.id)}
                     </ul>
                 </li>
@@ -88,8 +88,8 @@ export default function CursoUnidades() {
             return pasos.map((paso) => (
                 <div key={paso.id}>
                     {paso.idunidad == idunidad ?
-                        <li key={paso.id} className="w-100">
-                            <a className="nav-link px-0" onClick={e => (clickPaso(paso.id))}><span className="d-none d-sm-inline span-title pointer">{paso.name}</span></a>
+                        <li key={paso.id} className="li-cursoUnidades">
+                            <a onClick={e => (clickPaso(paso.id))}><span>{paso.name}</span></a>
                         </li> :
                         <></>
                     }
@@ -124,22 +124,16 @@ export default function CursoUnidades() {
     if (state === 6) {
         return (
             <main className="main-cursoUnidad">
-                <div className="container-fluid">
-                    <div className="row flex-nowrap ">
-                        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-color scroll">
-                            <div className="d-flex flex-column align-items-center px-3 pt-2 text-white min-vh-100">
-                                <h1 className="fs-5 d-none d-sm-inline span-title">{nivel.name}</h1>
-                                <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                                    {renderUnidades()}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col py-3 cursoNiveles">
-                            {
-                                renderPaso()
-                            }
-                        </div>
-                    </div>
+                <div className="divRow-cursoUnidad">
+                    <section className="pasos-cursoUnidad">
+                        <h1 className="h1-cursoUnidad">{nivel.name}</h1>
+                        <ul className="ulPasos-cursoUnidad">
+                            {renderUnidades()}
+                        </ul>
+                    </section>
+                    <section className="videos-cursoUnidad">
+                        {renderPaso()}
+                    </section>
                 </div>
             </main>
         );
@@ -154,3 +148,21 @@ export default function CursoUnidades() {
         </AuthProvider>
     );
 }
+
+/*
+<div className="container-fluid">
+                    <div className="row flex-nowrap">
+                        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-color scroll">
+                            <div className="d-flex flex-column align-items-center px-3 pt-2 text-white min-vh-100">
+                                <h1 className="fs-5 d-none d-sm-inline span-title">{nivel.name}</h1>
+                                <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                                    {renderUnidades()}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="col py-3 cursoNiveles">
+                            {renderPaso()}
+                        </div>
+                    </div>
+                </div>
+*/
