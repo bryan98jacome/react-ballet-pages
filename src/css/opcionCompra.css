@@ -1,0 +1,92 @@
+.main-opcionCompra{
+    padding-top: 50px;
+    min-height: 650px;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.opciones-opcionCompra{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.divOpcion-opcionCompra{
+    margin: 25px;
+    padding: 25px;
+    width: 25%;
+    height: 500px;
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.405);
+}
+
+.divTop-opcionCompra{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.divTop-opcionCompra h3{
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.divAnual-opcionCompra{ 
+    background-color: rgba(0, 0, 0, 0.642);
+    padding: 5px;
+    border: solid 1px black;
+    border-radius: 6px;
+    color: white;
+}
+
+.divSvg-opcionCompra{ 
+    display: flex;
+    margin-bottom: -20px;
+}
+
+.divSvg-opcionCompra svg{
+    margin-left: 5px;
+}
+
+.divPrecio-opcionCompra{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+.divPrecio-opcionCompra img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.btn-opcionCompra{
+    width: 100%;
+    font-weight: 700;
+    padding: 15px;
+    margin: 25px 0 30px 0;
+    border: none;
+    border-radius: 6px;
+    background-color: aqua;
+}
+
+.btn-opcionCompra:hover{
+    background-color: rgba(0, 255, 255, 0.437);
+}
+
+.ul-opcionCompra li{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.ul-opcionCompra li::before {
+    font-size: 20px;
+    color: green;
+    content: '\2714';
+    padding-right: 10px;
+}

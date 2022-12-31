@@ -35,7 +35,7 @@ const Niveles = () => {
                         <div className="cont-button">
                             <strong>Empieza hoy</strong>
                             <p>Dale click a Inscribirse para comenzar con el curso</p>
-                            <Button as={Link} to='../curso-niveles' className="button-Ins">Inscribirse</Button>
+                            <Button as={Link} to='../opcion-compra' className="button-Ins">Inscribirse</Button>
                         </div>
                     </div>
                 </div>
