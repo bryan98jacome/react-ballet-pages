@@ -294,7 +294,7 @@
     padding: 0 50px 0 50px;
 }
 
-@media(max-width: 800px) {
+@media(max-width: 992px) {
     .div-encabezado {
         background: url("../img/3 1ra posicion de brazos.JPG") center center;
         background-position: center;
@@ -302,6 +302,10 @@
         background-size: cover;
         display: flex;
         flex-direction: column;
+    }
+
+    .cont-button {
+        width: 80%;
     }
 
     .cont-button button {

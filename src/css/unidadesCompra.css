@@ -1,0 +1,75 @@
+.main-unidadesCompra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    min-height: 650px;
+}
+
+.divUnidades-unidadesCompra {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.divUnidad-unidadesCompra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px;
+    padding: 25px;
+    background-color: white;
+    width: 40%;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.divPasos-unidadesCompra {
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    margin-bottom: 25px;
+    background-color: rgba(162, 162, 162, 0.129);
+    border-radius: 10px;
+}
+
+.li-unidadesCompra {
+    text-align: justify;
+    margin: 5px 25px 5px 25px;
+    color: rgba(0, 0, 0, 0.682);
+    list-style-type: "\2013";
+}
+
+.divButton-unidadesCompra {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.divButton-unidadesCompra button {
+    font-size: large;
+    padding: 5px 15px 5px 15px;
+    margin: 25px 0 30px 0;
+    border: none;
+    border-radius: 6px;
+    background-color: aqua;
+}
+
+.divButton-unidadesCompra button:hover {
+    background-color: rgba(0, 255, 255, 0.437);
+}
+
+@media(max-width: 992px) {
+
+    .divUnidades-unidadesCompra {
+        width: 100%;
+    }
+
+    .divUnidad-unidadesCompra {
+        width: 80%;
+    }
+}

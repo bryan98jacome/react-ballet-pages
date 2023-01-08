@@ -25,6 +25,7 @@ import './css/cursoUnidades.css';
 import './css/chooseCurso.css';
 import './css/misCursos.css';
 import './css/opcionCompra.css';
+import './css/unidadesCompra.css';
 import './css/footer.css';
 
 import Cursos from './routes/cursos';
@@ -49,6 +50,7 @@ import CursoNiveles from './routes/cursoNiveles';
 import CursoUnidades from './routes/cursoUnidades';
 import MisCursos from './routes/misCursos';
 import OpcionCompra from './routes/opcionCompra';
+import UnidadesCompra from './routes/unidadesCompra';
 import NavegationBar from './layouts/navbar';
 import Footer from './layouts/footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -80,6 +82,7 @@ function App() {
             <Route path='curso-unidades/:idnivel' element={<CursoUnidades />} />
             <Route path='editar-paso/:idpaso' element={<EditPaso />} />
             <Route path='opcion-compra' element={<OpcionCompra />} />
+            <Route path='unidades-compra' element={<UnidadesCompra />} />
             <Route path='mis-cursos' element={<MisCursos />} />
           </Route>
         </Routes>

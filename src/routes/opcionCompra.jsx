@@ -1,6 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import eeuuImg from '../img/estados-unidos.png';
 
 export default function OpcionCompra() {
+
+    const navigate = useNavigate();
+
+    function clickUnidadesCompra(){
+        navigate('../unidades-compra');
+    }
     return (
         <main className="main-opcionCompra">
             <section className="opciones-opcionCompra">
@@ -46,7 +53,7 @@ export default function OpcionCompra() {
                         <strong>$50</strong>
                         <p>*unidad/año</p>
                     </div>
-                    <button className='btn-opcionCompra'>Suscríbete ahora</button>
+                    <button className='btn-opcionCompra' onClick={clickUnidadesCompra}>Suscríbete ahora</button>
                     <ul className='ul-opcionCompra'>
                         <li><p>Certificado al finalizar</p></li>
                         <li><p>Curso 100% en linea</p></li>
