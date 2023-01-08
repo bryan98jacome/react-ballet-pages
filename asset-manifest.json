@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-ballet-pages/static/css/main.6f04f421.css",
-    "main.js": "/react-ballet-pages/static/js/main.0f4273d4.js",
+    "main.css": "/react-ballet-pages/static/css/main.92ee5b42.css",
+    "main.js": "/react-ballet-pages/static/js/main.3aef5c4b.js",
     "static/js/787.59f1730a.chunk.js": "/react-ballet-pages/static/js/787.59f1730a.chunk.js",
     "static/media/3 1ra posicion de brazos.JPG": "/react-ballet-pages/static/media/3 1ra posicion de brazos.439c2121d359b3d8d301.JPG",
     "static/media/3 5ta posicion de brazos.JPG": "/react-ballet-pages/static/media/3 5ta posicion de brazos.02422af3aa090ff54ade.JPG",
@@ -10,15 +10,16 @@
     "static/media/docente-ninette-duran.jpg": "/react-ballet-pages/static/media/docente-ninette-duran.e3731986b656e00ca10f.jpg",
     "static/media/docente.jpg": "/react-ballet-pages/static/media/docente.a54f66b8468a7e534c97.jpg",
     "static/media/BALLET TEACHER ACADEMY.jpg": "/react-ballet-pages/static/media/BALLET TEACHER ACADEMY.fdbf00639383a51eff9d.jpg",
+    "static/media/estados-unidos.png": "/react-ballet-pages/static/media/estados-unidos.4d9d990626a3df96a265.png",
     "static/media/user.png": "/react-ballet-pages/static/media/user.c920752422c11377083e.png",
     "static/media/addPhoto.png": "/react-ballet-pages/static/media/addPhoto.d5c91d587f26349d2be4.png",
     "index.html": "/react-ballet-pages/index.html",
-    "main.6f04f421.css.map": "/react-ballet-pages/static/css/main.6f04f421.css.map",
-    "main.0f4273d4.js.map": "/react-ballet-pages/static/js/main.0f4273d4.js.map",
+    "main.92ee5b42.css.map": "/react-ballet-pages/static/css/main.92ee5b42.css.map",
+    "main.3aef5c4b.js.map": "/react-ballet-pages/static/js/main.3aef5c4b.js.map",
     "787.59f1730a.chunk.js.map": "/react-ballet-pages/static/js/787.59f1730a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f04f421.css",
-    "static/js/main.0f4273d4.js"
+    "static/css/main.92ee5b42.css",
+    "static/js/main.3aef5c4b.js"
   ]
 }
