@@ -7,6 +7,10 @@
     min-height: 650px;
 }
 
+.main-unidadesCompra h1 {
+    margin-top: 25px;
+}
+
 .divUnidades-unidadesCompra {
     display: flex;
     flex-direction: row;
@@ -63,6 +67,52 @@
     background-color: rgba(0, 255, 255, 0.437);
 }
 
+.sec-presio{ 
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.divPrecio-nivelCompra { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.divPrecio-nivelCompra img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.div-presioCompra {
+    display: flex;
+    flex-direction: row;
+}
+
+.div-compra {
+    margin-right: 50px;
+}
+
+.divButtonS-unidadesCompra { 
+    height: 105px;
+    margin-left: 25px;
+}
+
+.divButtonS-unidadesCompra button{
+    font-size: large;
+    padding: 5px 15px 5px 15px;
+    margin: 25px 0 30px 0;
+    border: none;
+    border-radius: 6px;
+    background-color: aqua;
+}
+
+.divButtonS-unidadesCompra button:hover {
+    background-color: rgba(0, 255, 255, 0.437);
+}
+
 @media(max-width: 992px) {
 
     .divUnidades-unidadesCompra {
@@ -71,5 +121,15 @@
 
     .divUnidad-unidadesCompra {
         width: 80%;
+    }
+
+    .divPrecio-nivelCompra {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .div-compra {
+        margin-right: 0px;
     }
 }

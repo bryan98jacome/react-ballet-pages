@@ -5,9 +5,14 @@ export default function OpcionCompra() {
 
     const navigate = useNavigate();
 
-    function clickUnidadesCompra(){
+    function clickUnidadesCompra() {
         navigate('../unidades-compra');
     }
+
+    function clickCompra() {
+        navigate('../pagos');
+    }
+
     return (
         <main className="main-opcionCompra">
             <section className="opciones-opcionCompra">
@@ -28,7 +33,7 @@ export default function OpcionCompra() {
                         <strong>$150</strong>
                         <p>/año</p>
                     </div>
-                    <button className='btn-opcionCompra'>Suscríbete ahora</button>
+                    <button className='btn-opcionCompra' onClick={clickCompra}>Suscríbete ahora</button>
                     <ul className='ul-opcionCompra'>
                         <li><p>Certificado al finalizar</p></li>
                         <li><p>Curso 100% en linea</p></li>
@@ -38,7 +43,7 @@ export default function OpcionCompra() {
                 </div>
                 <div className="divOpcion-opcionCompra">
                     <div className="divTop-opcionCompra">
-                        <h3>Unidades</h3>
+                        <h3>Niveles</h3>
                         <div className="divAnual-opcionCompra"><strong>ANUAL</strong></div>
                     </div>
                     <div className="divSvg-opcionCompra">

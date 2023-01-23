@@ -1,0 +1,41 @@
+.main-pagos {
+    padding-top: 50px;
+    min-height: 650px;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+}
+
+.sec-pagos{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 25px;
+    padding: 0;
+    background-color: white;
+    border: 1px solid rgba(98, 98, 98, 0.214);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(107, 107, 107, 0.174);
+}
+
+.div2-pagos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-left: 1px solid rgba(98, 98, 98, 0.214);
+    padding: 25px;
+
+}
+
+.ul-pagos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.divPaypal-pagos{
+    width: 100%;
+}
