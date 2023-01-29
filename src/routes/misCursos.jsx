@@ -5,6 +5,8 @@ import { getCursos } from "../firebase/firebase";
 
 export default function MisCursos() {
 
+    const fecha = new Date();
+
     const navigate = useNavigate();
 
     const [state, setState] = useState(0);
@@ -32,22 +34,41 @@ export default function MisCursos() {
         setCursos([...res]);
     }
 
+    function getDias() {
+        //Aqui poner la fecha de compra de la base de datos 
+        let fecha1 = new Date(fecha.toISOString());
+        //Aqui poner la fecha Actual 
+        let fecha2 = new Date('01/29/2023');
+        //Calculamos los dias transcurridos 
+        let miliSegDia = 24 * 60 * 60 * 1000;
+        let miliSegTrans = Math.abs(fecha1.getTime() - fecha2.getTime());
+        let diasTrans = Math.round(miliSegTrans / miliSegDia);
+        return diasTrans
+    }
+
     function renderCursos() {
-        if (cursos.length > 0) {
-            return cursos.map((curso) => (
-                <div
-                    className="view-curso"
-                    key={curso.id}
-                    onClick={(e) => { clickCurso(curso.id) }}
-                >
-                    <div>
-                        <h2>{curso.name}</h2>
-                        <p>{curso.descripcion}</p>
+        let dias = getDias();
+        if (dias < 365) {
+            if (cursos.length > 0) {
+                return cursos.map((curso) => (
+                    <div
+                        className="view-curso"
+                        key={curso.id}
+                        onClick={(e) => { clickCurso(curso.id) }}
+                    >
+                        <div>
+                            <h2>{curso.name}</h2>
+                            <p>{curso.descripcion}</p>
+                        </div>
+                        <img src={curso.photo} />
                     </div>
-                    <img src={curso.photo} />
-                </div>
-            ));
+                ));
+            }
+        } else {
+            //Aqui poner un metodo para eliminar la compra de la base de datos 
+            return <strong>Suscribete en un curso</strong>
         }
+
     }
 
     function clickCurso(e) {

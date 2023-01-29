@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 
 export default function Pagos() {
 
-    let {valor} = useParams();
+    let { valor } = useParams();
+    const fecha = new Date();
 
     const createOrder = (data, actions) => {
         return actions.order.create({
@@ -20,13 +21,15 @@ export default function Pagos() {
     };
 
     const onApprove = (data, actions) => {
-        
-        return actions.order.capture().then(function(detalles){console.log("AQUIIIIIIIII"+detalles)});
+        console.log("COMPRA REALIZADA CON EXITO");
+        alert("COMPRA REALIZADA CON EXITO");
+        return actions.order.capture();
     };
 
     return (
         <main className="main-pagos">
             <section className='sec-pagos'>
+                {console.log(fecha.toISOString())}
                 <div className='div1-pagos'>
                     <img src={cursoImg} alt="imagen-logo" />
                 </div>
