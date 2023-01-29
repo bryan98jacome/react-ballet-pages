@@ -1,18 +1,18 @@
 import eeuuImg from '../img/estados-unidos.png';
 import cursoImg from '../img/BALLET TEACHER ACADEMY.jpg';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-//import React from "react";
-//import ReactDOM from "react-dom"
-//const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
+import { useParams } from 'react-router-dom';
 
 export default function Pagos() {
+
+    let {valor} = useParams();
 
     const createOrder = (data, actions) => {
         return actions.order.create({
             purchase_units: [
                 {
                     amount: {
-                        value: "5.00",
+                        value: valor,
                     },
                 },
             ],
@@ -20,6 +20,7 @@ export default function Pagos() {
     };
 
     const onApprove = (data, actions) => {
+        
         return actions.order.capture().then(function(detalles){console.log("AQUIIIIIIIII"+detalles)});
     };
 
@@ -33,7 +34,7 @@ export default function Pagos() {
                     <h2>Metodología Cubana de Ballet</h2>
                     <div className="divPrecio-opcionCompra">
                         <img src={eeuuImg} alt="Foto de Estados Unidos" />
-                        <strong>$50</strong>
+                        <strong>${valor}</strong>
                         <p>*unidad/año</p>
                     </div>
                     <strong>Descripción</strong>

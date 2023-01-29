@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getNiveles, getPasos, getUnidades } from '../firebase/firebase';
 import eeuuImg from '../img/estados-unidos.png';
+import swal from "sweetalert";
 
 export default function NivelesCompra() {
 
+    const navigate = useNavigate();
     const [niveles, setNiveles] = useState([]);
     const [selection, setSelection] = useState([]);
+    let valorFinal = 0;
 
     const descrip = [
         { des: "El 1er nivel comprende un programa divido en: 9 unidades de estudio con un promedio de 20 a 30 pasos a enseñar por cada unidad y con un total de 219 pasos a enseñar en todo el nivel. Este primer nivel tiene como objetivo la enseñanza de la postura y colocación del cuerpo, piernas, brazos y cabeza. En este nivel los estudiantes conocen por primera vez los pasos básicos que componen la técnica del ballet, por lo que es necesario aplicar un conteo de enseñanza que favorezca el desarrollo del movimiento para su correcta forma de ejecución y mecanismo de realización, primeramente, de las piernas con la utilización de brazos y cabeza en posiciones fijas. La dinámica de la clase en un 1er año es lenta, controlada, metódica, donde los distintos pasos se van a enseñar por separado, inicialmente en 1ra fase, para después pasarlo a 2da fase combinándolos en los distintos ejercicios donde lo recomendable es utilizar hasta 3 dificultades técnicas por ejercicio y finalmente realizarlos al centro del salón primeramente en posición en face y una vez dominado los pasos en centro hacerlos desde las posiciones croise, efface o ecarte" },
@@ -98,15 +102,32 @@ export default function NivelesCompra() {
                     </div>
                     <div className="div-presioCompra">
                         <img src={eeuuImg} alt="Foto de Estados Unidos" />
-                        <strong>${selection.length * 50}</strong>
+                        <strong>${calcularValor()}</strong>
                         <p>/año</p>
                     </div>
                     <div className="divButtonS-unidadesCompra">
-                        <button>Suscribirse</button>
+                        <button onClick={clickCompra}>Suscribirse</button>
                     </div>
                 </div>
             </>
         );
+    }
+
+    function calcularValor() {
+        valorFinal = selection.length * 300;
+        return valorFinal;
+    }
+
+    function clickCompra() {
+        if (valorFinal === 0) {
+            swal(
+                `Debes seleccionar mínimo un nivel para la compra`,
+                "Intenta de nuevo",
+                "warning"
+            );
+        } else {
+            navigate(`../pagos/${valorFinal}`);
+        }
     }
 
     return (
