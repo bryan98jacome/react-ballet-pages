@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-ballet-pages/static/css/main.8a46d6cb.css",
-    "main.js": "/react-ballet-pages/static/js/main.d5d8f34b.js",
+    "main.js": "/react-ballet-pages/static/js/main.4777549e.js",
     "static/js/787.59f1730a.chunk.js": "/react-ballet-pages/static/js/787.59f1730a.chunk.js",
     "static/media/3 1ra posicion de brazos.JPG": "/react-ballet-pages/static/media/3 1ra posicion de brazos.439c2121d359b3d8d301.JPG",
     "static/media/3 5ta posicion de brazos.JPG": "/react-ballet-pages/static/media/3 5ta posicion de brazos.02422af3aa090ff54ade.JPG",
@@ -15,11 +15,11 @@
     "static/media/addPhoto.png": "/react-ballet-pages/static/media/addPhoto.d5c91d587f26349d2be4.png",
     "index.html": "/react-ballet-pages/index.html",
     "main.8a46d6cb.css.map": "/react-ballet-pages/static/css/main.8a46d6cb.css.map",
-    "main.d5d8f34b.js.map": "/react-ballet-pages/static/js/main.d5d8f34b.js.map",
+    "main.4777549e.js.map": "/react-ballet-pages/static/js/main.4777549e.js.map",
     "787.59f1730a.chunk.js.map": "/react-ballet-pages/static/js/787.59f1730a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8a46d6cb.css",
-    "static/js/main.d5d8f34b.js"
+    "static/js/main.4777549e.js"
   ]
 }
