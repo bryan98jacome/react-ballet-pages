@@ -18,14 +18,14 @@ const Home = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="list-icon" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z" />
                             </svg>
-                            <p>Cursos de ballet profesional, aprende tecnicas, metodologias y domina los conceptos básicos del baile.</p>
+                            <p>Cursos de metodología cubana de ballet, aprende tecnicas, metodologias y domina los conceptos básicos del ballet.</p>
                         </div>
                         <div className="list-contain">
                             <svg xmlns="http://www.w3.org/2000/svg" className="list-icon" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M10.53 5.968h-.843v4.06h.843c1.117 0 1.622-.667 1.622-2.02 0-1.354-.51-2.04-1.622-2.04z" />
                                 <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm5.396 3.001V11H6.209V8.43H3.687V11H2.5V5.001h1.187v2.44h2.522V5h1.187zM8.5 11V5.001h2.188c1.824 0 2.685 1.09 2.685 2.984C13.373 9.893 12.5 11 10.69 11H8.5z" />
                             </svg>
-                            <p>Videos exclusivos con buena calidad, documentación de pasos de baile. Contenido descargable para usuarios.</p>
+                            <p>Videos exclusivos con buena calidad y documentación de pasos de baile.</p>
                         </div>
                         <div className="list-contain">
                             <svg xmlns="http://www.w3.org/2000/svg" className="list-icon" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
