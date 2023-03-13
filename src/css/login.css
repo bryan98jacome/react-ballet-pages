@@ -154,6 +154,10 @@
     cursor: pointer;
 }
 
+.btn-google img{
+    width: 25px;
+}
+
 .nav-linkLogin {
     position: absolute;
     width: 140px;
