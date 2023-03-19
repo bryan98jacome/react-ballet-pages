@@ -24,17 +24,25 @@ export default function Pagos() {
     };
 
     const onApprove = (data, actions) => {
-        //Generar un metodo para guardar los datos de la compra en firebase!!!!!!
-        
+        upDateCompra(data);
         swal({
             title: "Compra realizada con exito!",
             text: "Felicidades ahora puedes empezar tu curso!",
             icon: "success",
             button: "OK",
         });
-        navigate(`../mis-cursos`);
+        // al finalizar quitar el comentario xdxdxdxdxdxdxdxdxd
+        //navigate(`../mis-cursos`);
         return actions.order.capture();
     };
+
+    function upDateCompra(data) {
+        const tmp = {};
+        tmp.fechaCompra = fecha;
+        tmp.orderID = data.orderID;
+        tmp.cursoId = id;
+        //Crear metodo para guardar la compra en firebase 
+    }
 
     return (
         <main className="main-pagos">
