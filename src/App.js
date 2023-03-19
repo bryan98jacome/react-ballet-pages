@@ -85,7 +85,7 @@ function App() {
             <Route path='editar-paso/:idpaso' element={<EditPaso />} />
             <Route path='opcion-compra' element={<OpcionCompra />} />
             <Route path='unidades-compra' element={<NivelesCompra />} />
-            <Route path='pagos/:valor' element={<Pagos />} />
+            <Route path='pagos/:valor/:id' element={<Pagos />} />
             <Route path='mis-cursos' element={<MisCursos />} />
           </Route>
         </Routes>

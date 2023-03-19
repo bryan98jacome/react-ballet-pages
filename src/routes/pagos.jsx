@@ -1,12 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import eeuuImg from '../img/estados-unidos.png';
 import cursoImg from '../img/BALLET TEACHER ACADEMY.jpg';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { useParams } from 'react-router-dom';
+import swal from "sweetalert";
 
 export default function Pagos() {
 
-    let { valor } = useParams();
+    let { valor, id } = useParams();
     const fecha = new Date();
+    const navigate = useNavigate();
 
     const createOrder = (data, actions) => {
         return actions.order.create({
@@ -21,8 +24,15 @@ export default function Pagos() {
     };
 
     const onApprove = (data, actions) => {
-        console.log("COMPRA REALIZADA CON EXITO");
-        alert("COMPRA REALIZADA CON EXITO");
+        //Generar un metodo para guardar los datos de la compra en firebase!!!!!!
+        
+        swal({
+            title: "Compra realizada con exito!",
+            text: "Felicidades ahora puedes empezar tu curso!",
+            icon: "success",
+            button: "OK",
+        });
+        navigate(`../mis-cursos`);
         return actions.order.capture();
     };
 

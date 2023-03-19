@@ -55,7 +55,7 @@ export default function OpcionCompra() {
                 } 
             });
         } else {
-            navigate(`../pagos/${1900}`);
+            navigate(`../pagos/${1900}/${'82f45f19-e930-467d-a791-e8bbde2a6b57'}`);
         }
     }
 
