@@ -21,6 +21,7 @@ import {
   deleteDoc,
   orderBy,
 } from "firebase/firestore";
+import async from "hbs/lib/async";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -517,6 +518,32 @@ export async function deletePaso(uuid) {
 export async function deleteVideoPaso(uuid) {
   const desertRef = ref(storage, `VideosPasos/${uuid}`);
   deleteObject(desertRef).then(() => { }).catch((error) => { });
+}
+
+/**  Compras **/
+/**  Agregar Compra **/
+export async function compraCurso(compra) {
+  try {
+    const collectionRef = collection(db, 'compras');
+    const docRef = doc(collectionRef, compra.orderID);
+    await setDoc(docRef, compra);
+  } catch (error) { }
+}
+
+/**  obtener informaci'on de la compra  **/
+export async function getCompras(uuid) {
+  const compras = [];
+  try {
+    const collectionRef = collection(db, "compras");
+    const q = query(collectionRef, where("userUID", "==", uuid));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      compras.push(doc.data());
+    });
+    return compras;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 
