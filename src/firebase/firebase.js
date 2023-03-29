@@ -311,6 +311,7 @@ export async function getNiveles(id) {
     console.error(error);
   }
 }
+
 /*Consulta del nivel mediante el id*/
 export async function getNivel(uuid) {
   try {
@@ -321,6 +322,7 @@ export async function getNivel(uuid) {
     console.error(error);
   }
 }
+
 /** Eliminar el nivel **/
 export async function deleteNivel(uuid) {
   try {
@@ -530,7 +532,7 @@ export async function compraCurso(compra) {
   } catch (error) { }
 }
 
-/**  obtener informaci'on de la compra  **/
+/**  obtener información de la compra  **/
 export async function getCompras(uuid) {
   const compras = [];
   try {
@@ -541,6 +543,25 @@ export async function getCompras(uuid) {
       compras.push(doc.data());
     });
     return compras;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/**  Agregar Compra Temporal**/
+export async function compraTemp(compra) {
+  try {
+    const collectionRef = collection(db, 'comprasTemp');
+    const docRef = doc(collectionRef, compra.id);
+    await setDoc(docRef, compra);
+  } catch (error) { console.log(error) }
+}
+/**  Obtener Compra Temporal**/
+export async function getCompraTemp(uuid) {
+  try {
+    const docRef = doc(db, "comprasTemp", uuid);
+    const document = await getDoc(docRef);
+    return document.data();
   } catch (error) {
     console.error(error);
   }

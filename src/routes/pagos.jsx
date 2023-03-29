@@ -5,7 +5,7 @@ import cursoImg from '../img/BALLET TEACHER ACADEMY.jpg';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { useParams } from 'react-router-dom';
 import swal from "sweetalert";
-import { compraCurso } from '../firebase/firebase';
+import { compraCurso, getCompraTemp } from '../firebase/firebase';
 import AuthProvider from '../components/authProvider';
 
 export default function Pagos() {
@@ -57,13 +57,25 @@ export default function Pagos() {
     };
 
     async function upDateCompra(data) {
-        const tmp = {};
-        tmp.fechaCompra = fecha.toISOString();
-        tmp.orderID = data.orderID;
-        tmp.cursoId = id;
-        tmp.userUID = currentUser.uid;
-        console.log(tmp);
-        await compraCurso(tmp);
+        if (id === currentUser.uid) {
+            // Obtener los nombres de las propiedades del objeto
+            const resCompraTemp = await getCompraTemp(currentUser.uid);
+            const names = Object.keys(resCompraTemp);
+            const tmp = {};
+            tmp.fechaCompra = fecha.toISOString();
+            tmp.orderID = data.orderID;
+            tmp.cursoId = names;
+            tmp.userUID = currentUser.uid;
+            await compraCurso(tmp);
+            console.log(tmp);
+        } else {
+            const tmp = {};
+            tmp.fechaCompra = fecha.toISOString();
+            tmp.orderID = data.orderID;
+            tmp.cursoId = id;
+            tmp.userUID = currentUser.uid;
+            await compraCurso(tmp);
+        }
     }
 
     if (state === 6) {

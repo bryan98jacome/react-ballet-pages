@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getNiveles, getPasos, getUnidades } from '../firebase/firebase';
+import { compraTemp, getNiveles, getPasos, getUnidades } from '../firebase/firebase';
 import eeuuImg from '../img/estados-unidos.png';
 import swal from "sweetalert";
+import { v4 as uuid } from "uuid";
+import AuthProvider from "../components/authProvider";
 
 export default function NivelesCompra() {
 
     const navigate = useNavigate();
     const [niveles, setNiveles] = useState([]);
     const [selection, setSelection] = useState([]);
+    const [state, setState] = useState(0);
+    const [currentUser, setcurrentUser] = useState({});
     let valorFinal = 0;
 
     const descrip = [
@@ -25,6 +29,21 @@ export default function NivelesCompra() {
     useEffect(() => {
         getData();
     }, []);
+
+    async function handledUserLoggedIn(user) {
+        setcurrentUser(user);
+        setState(6);
+    }
+
+    function handleUserNotRegistered(user) {
+        setState(3);
+        navigate("../");
+    }
+
+    function handleUserNotLoggedIn() {
+        setState(4);
+        navigate("../");
+    }
 
     async function getData() {
         const resNiveles = await getNiveles('82f45f19-e930-467d-a791-e8bbde2a6b57');
@@ -96,8 +115,8 @@ export default function NivelesCompra() {
                 <div className="divPrecio-nivelCompra">
                     <div className="div-compra">
                         {
-                            selection.length === 1 ? <p>{selection.length} nevel seleccionado</p>
-                                : <p>{selection.length} neveles seleccionados</p>
+                            selection.length === 1 ? <p>{selection.length} nivel seleccionado</p>
+                                : <p>{selection.length} niveles seleccionados</p>
                         }
                     </div>
                     <div className="div-presioCompra">
@@ -126,21 +145,36 @@ export default function NivelesCompra() {
                 "warning"
             );
         } else {
-            navigate(`../pagos/${valorFinal}`);
+            // Convertir el arreglo en un objeto
+            const tmp = selection.reduce((obj, item) => {
+                obj[item.id] = item;
+                return obj;
+            }, {});
+            tmp.id = currentUser.uid;
+            compraTemp(tmp);
+            navigate(`../pagos/${valorFinal}/${currentUser.uid}`);
         }
+    }
+    if (state === 6) {
+        return (
+            <main className="main-unidadesCompra">
+                <h1>Opciones de Compra</h1>
+                <section className="sec-presio">
+                    {compra()}
+                </section>
+                <div className="divUnidades-unidadesCompra">
+                    {renderNiveles()}
+                </div>
+            </main>
+        );
     }
 
     return (
-        <main className="main-unidadesCompra">
-            <h1>Opciones de Compra</h1>
-            <section className="sec-presio">
-                {compra()}
-            </section>
-            <div className="divUnidades-unidadesCompra">
-                {renderNiveles()}
-            </div>
-        </main>
+        <AuthProvider
+            onUserLoggedIn={handledUserLoggedIn}
+            onUserNotRegistered={handleUserNotRegistered}
+            onUserNotLoggedIn={handleUserNotLoggedIn}
+        >
+        </AuthProvider>
     );
-
-
 }
